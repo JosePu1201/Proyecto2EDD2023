@@ -33,12 +33,20 @@ public class BotonesDeCarga extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         cargaM = new javax.swing.JButton();
         cargaD = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
         reporte = new javax.swing.JButton();
 
         setLayout(new java.awt.GridLayout(0, 1));
+
+        jLabel1.setBackground(new java.awt.Color(0, 255, 51));
+        jLabel1.setFont(new java.awt.Font("Dyuthi", 3, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("ACCIONES POR ARCHIVOS EN FORMATO XML");
+        add(jLabel1);
 
         cargaM.setBackground(new java.awt.Color(0, 255, 153));
         cargaM.setFont(new java.awt.Font("Dyuthi", 3, 24)); // NOI18N
@@ -92,6 +100,7 @@ public class BotonesDeCarga extends javax.swing.JPanel {
     private javax.swing.JButton cargaD;
     private javax.swing.JButton cargaM;
     private javax.swing.JButton eliminar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton reporte;
     // End of variables declaration//GEN-END:variables
 }

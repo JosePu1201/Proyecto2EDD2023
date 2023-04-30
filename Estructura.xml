@@ -8,14 +8,15 @@
 		<Lugar> char </Lugar>
 		<Valor> int </Valor>
 		<clave> Nofactura </clave>
+		<relacion> factura22</relacion>
 	</estructura>
 	<estructura>
-		<tabla> factura </tabla>
-		<NoFactura> int </NoFactura>
-		<Nit> int </Nit>
-		<Fecha> char </Fecha>
-		<Lugar> char </Lugar>
-		<Valor> int </Valor>
-		<clave> Nofactura </clave>
+		<tabla> factura22 </tabla>
+		<NoFactura> intasd </NoFactura>
+		<Nit> intcvf </Nit>
+		<Fecha> chardfdf </Fecha>
+		<Lugar> dfgdfgchar </Lugar>
+		<Valor> intdfgdfg </Valor>
+		<clave> Nofacturadfgdfgdf </clave>
 	</estructura>
 </raiz>

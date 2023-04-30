@@ -1,13 +1,15 @@
 package com.mycompany.proyecto_2_edd.Listas;
 
 public class Nodo {
+
     private String informacion;
     private String tipo;
     Nodo anterior;
     Nodo siguiente;
-    
-    public Nodo(String informacion){
+
+    public Nodo(String informacion,String tipo) {
         this.informacion = informacion;
+        this.tipo = tipo;
     }
 
     public Nodo getAnterior() {
@@ -17,7 +19,7 @@ public class Nodo {
     public Nodo getSiguiente() {
         return siguiente;
     }
-    
+
     public void setAnterior(Nodo anterior) {
         this.anterior = anterior;
     }
@@ -26,22 +28,22 @@ public class Nodo {
         this.siguiente = siguiente;
     }
 
-    public void agregarAlInicio(Nodo nodoAgregar){
-        
+    public void agregarAlInicio(Nodo nodoAgregar) {
+
     }
 
-    public void imprimirSiguientes(){
-        System.out.println(informacion);
+    public void imprimirSiguientes() {
+        System.out.println("Atributo: " + informacion+"\tTipo: " + tipo);
         if (siguiente != null) {
             siguiente.imprimirSiguientes();
-        }        
+        }
     }
-    
-    public void imprimirAnteriores(){
-        System.out.println(informacion);
+
+    public void imprimirAnteriores() {
+       System.out.println("Atributo: " + informacion+"\tTipo: " + tipo);
         if (anterior != null) {
             anterior.imprimirAnteriores();
-        }        
+        }
     }
 
     public String getInformacion() {
@@ -59,7 +61,5 @@ public class Nodo {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
+
 }
-
-

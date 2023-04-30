@@ -12,7 +12,7 @@ public class Tabla {
     private String nombre;
     private String clave;
     private String relacion;
-    private ListaEnlazadaDoble campos;
+    private ListaEnlazadaDoble campos ;
 
     public Tabla() {
        campos = new ListaEnlazadaDoble();
@@ -50,6 +50,12 @@ public class Tabla {
         this.campos = campos;
     }
     
-    
+    public void imprimir(){
+        System.out.println("Nombre: "+nombre);
+        System.out.println("Clave: "+clave);
+        System.out.println("Relacion: "+relacion);
+        campos.imprimirPrincipioAFinal();
+        
+    }
     
 }
