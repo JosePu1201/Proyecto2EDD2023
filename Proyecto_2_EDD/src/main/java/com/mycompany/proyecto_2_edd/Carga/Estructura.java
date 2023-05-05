@@ -4,6 +4,8 @@
  */
 package com.mycompany.proyecto_2_edd.Carga;
 
+import com.mycompany.proyecto_2_edd.ListaTablas.ListaTabla;
+import com.mycompany.proyecto_2_edd.ListaTablas.NodoTabla;
 import com.mycompany.proyecto_2_edd.Listas.Nodo;
 import com.mycompany.proyecto_2_edd.Listas.Tabla;
 import java.io.BufferedReader;
@@ -25,7 +27,7 @@ import org.w3c.dom.NodeList;
  * @author jose
  */
 public class Estructura {
-
+    private ListaTabla tablas = new ListaTabla();
     public Estructura() {
 
     }
@@ -55,10 +57,12 @@ public class Estructura {
                         Tabla nueva = new Tabla();
                         // Obtener el nombre del elemento              
                         Nodo(nodo,nueva);
-                        nueva.imprimir();
-                        System.out.println("///////////////////////////");
+                        System.out.println("1)///////////////////////////");
+                        tablas.agregarFinal(new NodoTabla(nueva));
+                        System.out.println("2)///////////////////////////");
+                        
                         // Recorrer los atributos del elemento (si los tiene)
-                        if (nodo.hasAttributes()) {
+                        /*if (nodo.hasAttributes()) {
                             System.out.println("Atributos:");
                             for (int j = 0; j < nodo.getAttributes().getLength(); j++) {
                                 Node atributo = nodo.getAttributes().item(j);
@@ -66,10 +70,10 @@ public class Estructura {
                                 String valorAtributo = atributo.getNodeValue();
                                 System.out.println("- " + nombreAtributo + ": " + valorAtributo);
                             }
-                        }
+                        }*/
                     }
                 }
-
+                tablas.listar();
             }
             else{
                 JOptionPane.showMessageDialog(null, "El nombre del archivo no es correcto");
@@ -96,7 +100,7 @@ public class Estructura {
                     tab.setClave(type);
                 }
                 else if(nom.equals("relacion")){//obtiene una relacion en caso de que exista 
-                    System.out.println("Relacion: "+type);
+                    tab.setRelacion(type);
                 }
                 else{//obtiene los demas atributos que se van a guardar en una lista enlazada 
                     tab.getCampos().agregarAlFinal(new Nodo(nom,type));

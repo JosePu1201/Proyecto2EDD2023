@@ -4,6 +4,7 @@
  */
 package com.mycompany.proyecto_2_edd.Graficos;
 
+import com.mycompany.proyecto_2_edd.Listas.Tabla;
 import java.awt.BorderLayout;
 
 /**
@@ -36,6 +37,10 @@ public class panelPrincipal extends javax.swing.JPanel {
         this.setLayout(new BorderLayout());
         BotonesDeCarga nuevo = new BotonesDeCarga();
         this.add(nuevo,BorderLayout.EAST);
+        TablaPrueba nuevaTabla = new TablaPrueba(new Tabla());
+        this.add(nuevaTabla,BorderLayout.CENTER);
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
