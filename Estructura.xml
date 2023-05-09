@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<raiz>
+<Estructuras>
+	<estructura>
+		<tabla>Cliente</tabla>
+		<Nit> int </Nit>
+		<Nombre> String </Nombre>
+		<clave> NoCuenta </clave>
+	</estructura>
 	<estructura>
 		<tabla> factura </tabla>
 		<NoFactura> int </NoFactura>
@@ -8,22 +14,16 @@
 		<Lugar> char </Lugar>
 		<Valor> int </Valor>
 		<clave> Nofactura </clave>
-		<relacion> Cliente</relacion>
-	</estructura>
-	<estructura>
-		<tabla> Cliente </tabla>
-		<Nit> int </Nit>
-		<Nombre> String </Nombre>
-		<clave> NoCuenta </clave>
-	</estructura>
-	<estructura>
-		<tabla> Vendedor </tabla>
-		<Sueldo> int </Sueldo>
-		<NoEmpleado> int </NoEmpleado>
-		<relacion> Tienda </relacion>
+		<relacion>Cliente</relacion>
 	</estructura>
 	<estructura>
 		<tabla>Tienda</tabla>
 		<NoTienda>int</NoTienda>
 	</estructura>
-</raiz>
+	<estructura>
+		<tabla> Vendedor </tabla>
+		<Sueldo> int </Sueldo>
+		<NoEmpleado> int </NoEmpleado>
+		<relacion>Tienda</relacion>
+	</estructura>
+</Estructuras>
