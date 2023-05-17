@@ -12,10 +12,19 @@ public class Tabla {
     private String nombre;
     private String clave;
     private String relacion;
+    private int claveEntrada;
     private ListaEnlazadaDoble campos ;
 
     public Tabla() {
        campos = new ListaEnlazadaDoble();
+    }
+
+    public int getClaveEntrada() {
+        return claveEntrada;
+    }
+
+    public void setClaveEntrada(int claveEntrada) {
+        this.claveEntrada = claveEntrada;
     }
 
     public String getNombre() {

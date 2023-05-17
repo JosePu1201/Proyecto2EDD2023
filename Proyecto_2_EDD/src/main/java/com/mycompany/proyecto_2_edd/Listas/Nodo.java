@@ -4,12 +4,21 @@ public class Nodo {
 
     private String informacion;
     private String tipo;
+    private String dato;
     Nodo anterior;
     Nodo siguiente;
 
     public Nodo(String informacion,String tipo) {
         this.informacion = informacion;
         this.tipo = tipo;
+    }
+
+    public String getDato() {
+        return dato;
+    }
+
+    public void setDato(String dato) {
+        this.dato = dato;
     }
 
     public Nodo getAnterior() {

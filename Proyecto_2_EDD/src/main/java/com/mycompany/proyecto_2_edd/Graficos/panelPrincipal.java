@@ -4,6 +4,7 @@
  */
 package com.mycompany.proyecto_2_edd.Graficos;
 
+import com.mycompany.proyecto_2_edd.ListaTablas.ListaTabla;
 import com.mycompany.proyecto_2_edd.Listas.Tabla;
 import java.awt.BorderLayout;
 
@@ -12,11 +13,13 @@ import java.awt.BorderLayout;
  * @author jose
  */
 public class panelPrincipal extends javax.swing.JPanel {
-
+    
+    private ListaTabla tablas;
     /**
      * Creates new form panelPrincipal
      */
-    public panelPrincipal() {
+    public panelPrincipal(ListaTabla tablas) {
+        this.tablas = tablas;
         initComponents();
         agregarBotones();
         
@@ -35,11 +38,12 @@ public class panelPrincipal extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     public void agregarBotones(){
         this.setLayout(new BorderLayout());
-        BotonesDeCarga nuevo = new BotonesDeCarga();
+        BotonesDeCarga nuevo = new BotonesDeCarga(tablas);
         this.add(nuevo,BorderLayout.EAST);
         TablaPrueba nuevaTabla = new TablaPrueba(new Tabla());
         this.add(nuevaTabla,BorderLayout.CENTER);
-        
+        BotonesManuales manuales = new BotonesManuales(this);
+        this.add(manuales,BorderLayout.WEST);
         
     }
 

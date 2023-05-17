@@ -43,51 +43,65 @@ public class TablaCrear extends javax.swing.JPanel {
         jButton4 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(null);
 
         jLabel1.setText("Nombre");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 44, -1, -1));
-        add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 133, -1));
+        add(jLabel1);
+        jLabel1.setBounds(300, 40, 55, 15);
+        add(nombre);
+        nombre.setBounds(470, 40, 133, 23);
 
         jLabel2.setText("Clave");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 85, -1, -1));
-
-        jTextField1.setText("Clave");
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 81, 133, -1));
+        add(jLabel2);
+        jLabel2.setBounds(300, 90, 38, 15);
+        add(jTextField1);
+        jTextField1.setBounds(470, 80, 133, 23);
 
         jLabel3.setText("Atributos ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
+        add(jLabel3);
+        jLabel3.setBounds(390, 170, 70, 15);
 
         jButton1.setText("Confirmar nombre y clave");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 127, -1, -1));
+        add(jButton1);
+        jButton1.setBounds(350, 130, 209, 31);
 
         jLabel4.setText("Nombre");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 207, -1, -1));
+        add(jLabel4);
+        jLabel4.setBounds(300, 210, 55, 15);
 
         jLabel5.setText("Tipo");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 249, -1, -1));
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 203, 144, -1));
+        add(jLabel5);
+        jLabel5.setBounds(300, 250, 30, 15);
+        add(jTextField2);
+        jTextField2.setBounds(440, 200, 144, 23);
 
         jButton2.setText("Agregar atributo");
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, -1, -1));
+        add(jButton2);
+        jButton2.setBounds(380, 290, 180, 31);
 
         jButton3.setText("Crear tabla");
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 428, -1, -1));
+        add(jButton3);
+        jButton3.setBounds(380, 430, 110, 31);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "int", "double", "string", "float", "char", "long", "integer" }));
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 249, 144, -1));
+        add(jComboBox1);
+        jComboBox1.setBounds(440, 250, 144, 25);
 
         jLabel6.setText("Referncia");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 362, -1, -1));
+        add(jLabel6);
+        jLabel6.setBounds(300, 360, 67, 15);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 357, 75, -1));
+        add(jComboBox2);
+        jComboBox2.setBounds(380, 360, 75, 25);
 
         jButton4.setText("Agregar ");
-        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, -1, -1));
+        add(jButton4);
+        jButton4.setBounds(530, 350, 110, 31);
 
         jLabel7.setText("Precione Agregar si decea hacer una referencia a otra tabla");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 333, -1, -1));
+        add(jLabel7);
+        jLabel7.setBounds(250, 330, 426, 15);
     }// </editor-fold>//GEN-END:initComponents
 
 

@@ -5,6 +5,7 @@
 package com.mycompany.proyecto_2_edd;
 
 import com.mycompany.proyecto_2_edd.Graficos.panelPrincipal;
+import com.mycompany.proyecto_2_edd.ListaTablas.ListaTabla;
 import javax.swing.JFrame;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -15,7 +16,8 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 public class Proyecto_2_EDD {
 
     public static void main(String[] args) {
-        panelPrincipal nuevoPanel = new panelPrincipal();
+        ListaTabla listaTablas = new ListaTabla();
+        panelPrincipal nuevoPanel = new panelPrincipal(listaTablas);
         JFrame principal = new JFrame();
         principal.setLocationRelativeTo(null);
         principal.setSize(700,800);

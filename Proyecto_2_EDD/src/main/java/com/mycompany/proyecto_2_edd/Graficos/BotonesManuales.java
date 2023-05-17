@@ -5,7 +5,7 @@
 package com.mycompany.proyecto_2_edd.Graficos;
 
 import com.mycompany.proyecto_2_edd.Carga.Estructura;
-import com.mycompany.proyecto_2_edd.ListaTablas.ListaTabla;
+import java.awt.BorderLayout;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,16 +15,15 @@ import javax.swing.JTextArea;
  *
  * @author jose
  */
-public class BotonesDeCarga extends javax.swing.JPanel {
-    private Estructura estructura;
-    private ListaTabla tablas;
+public class BotonesManuales extends javax.swing.JPanel {
+    private panelPrincipal principal;
     /**
      * Creates new form BotonesDeCarga
      */
-    public BotonesDeCarga(ListaTabla tabas) {
-        this.tablas = tabas;
+    public BotonesManuales(panelPrincipal principal) {
+        this.principal = principal;
         initComponents();
-        estructura = new Estructura(tablas);
+        
     }
 
     /**
@@ -48,13 +47,13 @@ public class BotonesDeCarga extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Dyuthi", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ACCIONES POR ARCHIVOS EN FORMATO XML");
+        jLabel1.setText("ACCIONES MANUALES");
         add(jLabel1);
 
         cargaM.setBackground(new java.awt.Color(0, 255, 153));
         cargaM.setFont(new java.awt.Font("Dyuthi", 3, 24)); // NOI18N
         cargaM.setForeground(new java.awt.Color(0, 51, 255));
-        cargaM.setText("CARGA MASIVA");
+        cargaM.setText("CREAR TABLA");
         cargaM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cargaMActionPerformed(evt);
@@ -65,13 +64,13 @@ public class BotonesDeCarga extends javax.swing.JPanel {
         cargaD.setBackground(new java.awt.Color(0, 255, 153));
         cargaD.setFont(new java.awt.Font("Dyuthi", 3, 24)); // NOI18N
         cargaD.setForeground(new java.awt.Color(0, 51, 255));
-        cargaD.setText("CARGA DE DATOS");
+        cargaD.setText("AGREGAR FILA");
         add(cargaD);
 
         eliminar.setBackground(new java.awt.Color(0, 255, 153));
         eliminar.setFont(new java.awt.Font("Dyuthi", 3, 24)); // NOI18N
         eliminar.setForeground(new java.awt.Color(0, 51, 255));
-        eliminar.setText("ELIMINACION");
+        eliminar.setText("ELIMINAR");
         add(eliminar);
 
         reporte.setBackground(new java.awt.Color(0, 255, 153));
@@ -91,11 +90,13 @@ public class BotonesDeCarga extends javax.swing.JPanel {
     }//GEN-LAST:event_reporteActionPerformed
 
     private void cargaMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaMActionPerformed
-        try {
-            estructura.cargaDatos(new JTextArea());
-        } catch (IOException ex) {
-            Logger.getLogger(BotonesDeCarga.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        TablaCrear nueva = new TablaCrear();
+        nueva.setVisible(false);
+        nueva.setVisible(true);
+        principal.add(nueva,BorderLayout.CENTER);
+        principal.setVisible(false);
+        principal.setVisible(true);
+        
     }//GEN-LAST:event_cargaMActionPerformed
 
 

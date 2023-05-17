@@ -27,9 +27,9 @@ import org.w3c.dom.NodeList;
  * @author jose
  */
 public class Estructura {
-    private ListaTabla tablas = new ListaTabla();
-    public Estructura() {
-
+    private ListaTabla tablas;
+    public Estructura(ListaTabla tablas) {
+        this.tablas = tablas;
     }
 
     public void cargaDatos(JTextArea texto) throws FileNotFoundException, IOException {
