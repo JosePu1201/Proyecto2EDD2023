@@ -12,8 +12,10 @@ public class NodoListaSimple {
     
     private int elemento;
     private NodoListaSimple siguiente;
-
+    private int pos;
+    
     public NodoListaSimple() {
+        
     }
 
     public NodoListaSimple getSiguiente() {
@@ -30,6 +32,14 @@ public class NodoListaSimple {
 
     public void setElemento(int elemento) {
         this.elemento = elemento;
+    }
+
+    public int getPos() {
+        return pos;
+    }
+
+    public void setPos(int pos) {
+        this.pos = pos;
     }
     
 }

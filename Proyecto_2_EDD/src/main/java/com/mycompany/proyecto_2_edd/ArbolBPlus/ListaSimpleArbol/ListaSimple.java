@@ -17,6 +17,7 @@ public class ListaSimple {
     }
     
     public void agregarNuevo(NodoListaSimple nuevo){
+        nuevo.setPos(ocupado);
         if(primero == null){
             this.primero = nuevo;
             ocupado++;
