@@ -6,6 +6,7 @@ package com.mycompany.proyecto_2_edd.ArbolBPlus;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 /**
  *
@@ -44,10 +45,37 @@ public class ArbolPlus {
                     this.raiz = raizAux;
                 }
                 else{
-                
-                
+                    ArrayList<Integer> aux = nodito.datos;
+                    aux.add(dato);
+                    Collections.sort(aux);//metodo de de ordenamiento 
+                    padre.datos.add(aux.get(nodito.orden));//agregar en una posicion 
+                    Collections.sort(padre.datos);//metodo de de ordenamiento 
+                    NodoArbol auxIzq = new NodoArbol(nodito.orden);
+                    NodoArbol auxDer = new NodoArbol(nodito.orden);
+                    for(int i = 0; i<nodito.orden;i++){
+                        auxIzq.datos.add(aux.get(i));
+                    }
+                    for(int i = nodito.orden; i <= 2*nodito.orden; i++ ){
+                        auxDer.datos.add(aux.get(i));
+                    }
+                    
+                    padre.enlaces.remove(nodito);//remover esa direccion 
+                    padre.enlaces.add(auxIzq);
+                    padre.enlaces.add(auxDer);
+                    Collections.sort(padre.enlaces,new Ordenar());//Agregar la funcionalidad de ordenamientode la clase Ordenar.java
                 }
             }
+        }
+        else{
+            int cont = 0;
+            
+            for(cont = 0; cont < nodito.datos.size(); cont ++){
+                if(dato < nodito.datos.get(cont)){
+                    break;
+                }
+            }
+            //Recursividad 
+            insertarNuevo(dato, nodito.enlaces.get(cont), nodito);
         }
     }
     
