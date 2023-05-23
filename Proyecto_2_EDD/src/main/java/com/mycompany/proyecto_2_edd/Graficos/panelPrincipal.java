@@ -40,9 +40,7 @@ public class panelPrincipal extends javax.swing.JPanel {
         this.setLayout(new BorderLayout());
         BotonesDeCarga nuevo = new BotonesDeCarga(tablas);
         this.add(nuevo,BorderLayout.EAST);
-        TablaPrueba nuevaTabla = new TablaPrueba(new Tabla());
-        this.add(nuevaTabla,BorderLayout.CENTER);
-        BotonesManuales manuales = new BotonesManuales(this);
+        BotonesManuales manuales = new BotonesManuales(this,tablas);
         this.add(manuales,BorderLayout.WEST);
         
     }

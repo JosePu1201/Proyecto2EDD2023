@@ -5,6 +5,7 @@
 package com.mycompany.proyecto_2_edd.Graficos;
 
 import com.mycompany.proyecto_2_edd.Carga.Estructura;
+import com.mycompany.proyecto_2_edd.ListaTablas.ListaTabla;
 import java.awt.BorderLayout;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -17,10 +18,12 @@ import javax.swing.JTextArea;
  */
 public class BotonesManuales extends javax.swing.JPanel {
     private panelPrincipal principal;
+    private ListaTabla tablas;
     /**
      * Creates new form BotonesDeCarga
      */
-    public BotonesManuales(panelPrincipal principal) {
+    public BotonesManuales(panelPrincipal principal,ListaTabla tablas) {
+        this.tablas = tablas;
         this.principal = principal;
         initComponents();
         
@@ -90,13 +93,14 @@ public class BotonesManuales extends javax.swing.JPanel {
     }//GEN-LAST:event_reporteActionPerformed
 
     private void cargaMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaMActionPerformed
-        TablaCrear nueva = new TablaCrear();
-        nueva.setVisible(false);
-        nueva.setVisible(true);
+//        TablaCrear nueva = new TablaCrear();
+//        nueva.setVisible(false);
+//        nueva.setVisible(true);
+//        principal.add(nueva,BorderLayout.CENTER);
+//        principal.setVisible(false);
+//        principal.setVisible(true);
+        TablaPrueba nueva = new TablaPrueba(tablas);
         principal.add(nueva,BorderLayout.CENTER);
-        principal.setVisible(false);
-        principal.setVisible(true);
-        
     }//GEN-LAST:event_cargaMActionPerformed
 
 
