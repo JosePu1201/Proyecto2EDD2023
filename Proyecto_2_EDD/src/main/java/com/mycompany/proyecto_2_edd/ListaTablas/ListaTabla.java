@@ -80,5 +80,49 @@ public class ListaTabla {
         }
         return valido;
     }
+    public boolean existe(String entrada) {
+        boolean existe = false;
+        NodoTabla aux = primero;
+        while (aux != null) {
+            //Valida que exista la tabla 
+            if (aux.getTabla().getNombre().equals(entrada)) {
+                existe = true;
+                break;
+            }
+            aux = aux.getSiguiente();
+        }
+        return existe;
+    }
+    
+    public NodoTabla buscar(String nombre){
+        NodoTabla aux = primero;
+        NodoTabla salida = null;
+        while (aux != null) {
+            System.out.println("Buscando: "+nombre);            
+            if(aux.getTabla().getNombre().equals(nombre)){
+                aux.getTabla().imprimir();
+                salida = aux;
+                break;
+            }
+            aux = aux.getSiguiente();
+        }
+        System.out.println("Saliendo de aca ");
+        return salida;
+    }
+    public NodoTabla getPrimero() {
+        return primero;
+    }
+
+    public void setPrimero(NodoTabla primero) {
+        this.primero = primero;
+    }
+
+    public NodoTabla getUltimo() {
+        return ultimo;
+    }
+
+    public void setUltimo(NodoTabla ultimo) {
+        this.ultimo = ultimo;
+    }
 
 }

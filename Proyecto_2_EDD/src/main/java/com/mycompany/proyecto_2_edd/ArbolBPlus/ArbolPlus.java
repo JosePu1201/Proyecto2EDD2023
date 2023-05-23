@@ -13,7 +13,7 @@ import java.util.Comparator;
  * @author jose
  */
 public class ArbolPlus {
-    NodoArbol raiz;
+    public NodoArbol raiz;
 
     public ArbolPlus(int orden) {
         this.raiz = new NodoArbol(orden);
@@ -76,6 +76,20 @@ public class ArbolPlus {
             }
             //Recursividad 
             insertarNuevo(dato, nodito.enlaces.get(cont), nodito);
+        }
+    }
+    
+    public void imprimir(NodoArbol nodito){
+        if(nodito.enlaces.isEmpty()){
+            System.out.println(nodito.datos.toString());
+        }
+        else{
+            for (int i = 0; i < nodito.datos.size() ; i++) {
+                imprimir(nodito.enlaces.get(i));
+                System.out.print("enlaces: ");
+                System.out.println(nodito.datos.get(i));
+            }
+            imprimir(nodito.enlaces.get(nodito.enlaces.size() -1));
         }
     }
     

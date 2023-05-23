@@ -4,6 +4,7 @@
  */
 package com.mycompany.proyecto_2_edd.Graficos;
 
+import com.mycompany.proyecto_2_edd.Carga.CargaDatos;
 import com.mycompany.proyecto_2_edd.Carga.Estructura;
 import com.mycompany.proyecto_2_edd.ListaTablas.ListaTabla;
 import java.io.IOException;
@@ -17,6 +18,7 @@ import javax.swing.JTextArea;
  */
 public class BotonesDeCarga extends javax.swing.JPanel {
     private Estructura estructura;
+    private CargaDatos cargaDatos;
     private ListaTabla tablas;
     /**
      * Creates new form BotonesDeCarga
@@ -25,6 +27,7 @@ public class BotonesDeCarga extends javax.swing.JPanel {
         this.tablas = tabas;
         initComponents();
         estructura = new Estructura(tablas);
+        cargaDatos = new CargaDatos(tablas);
     }
 
     /**
@@ -66,6 +69,11 @@ public class BotonesDeCarga extends javax.swing.JPanel {
         cargaD.setFont(new java.awt.Font("Dyuthi", 3, 24)); // NOI18N
         cargaD.setForeground(new java.awt.Color(0, 51, 255));
         cargaD.setText("CARGA DE DATOS");
+        cargaD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargaDActionPerformed(evt);
+            }
+        });
         add(cargaD);
 
         eliminar.setBackground(new java.awt.Color(0, 255, 153));
@@ -97,6 +105,15 @@ public class BotonesDeCarga extends javax.swing.JPanel {
             Logger.getLogger(BotonesDeCarga.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cargaMActionPerformed
+
+    private void cargaDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaDActionPerformed
+        
+        try {
+            cargaDatos.cargaDatos(new JTextArea());
+        } catch (IOException ex) {
+            Logger.getLogger(BotonesDeCarga.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cargaDActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

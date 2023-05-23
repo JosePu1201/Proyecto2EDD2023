@@ -67,4 +67,18 @@ public class Tabla {
         
     }
     
+    public boolean existeTipo(String tipo,String datos){
+        
+        boolean bandera = false;
+        Nodo aux = campos.head;
+        while (aux != null) {            
+            if(tipo.equals(aux.getInformacion())){
+                aux.setInformacion(datos);
+                bandera = true;
+                break;
+            }
+            aux = aux.getSiguiente();
+        }
+        return bandera;
+    }
 }
