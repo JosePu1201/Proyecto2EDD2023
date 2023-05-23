@@ -7,9 +7,11 @@ package com.mycompany.proyecto_2_edd.Graficos;
 import com.mycompany.proyecto_2_edd.Carga.Estructura;
 import com.mycompany.proyecto_2_edd.ListaTablas.ListaTabla;
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 /**
@@ -17,16 +19,19 @@ import javax.swing.JTextArea;
  * @author jose
  */
 public class BotonesManuales extends javax.swing.JPanel {
+
     private panelPrincipal principal;
     private ListaTabla tablas;
+    
+
     /**
      * Creates new form BotonesDeCarga
      */
-    public BotonesManuales(panelPrincipal principal,ListaTabla tablas) {
+    public BotonesManuales(panelPrincipal principal, ListaTabla tablas) {
         this.tablas = tablas;
         this.principal = principal;
         initComponents();
-        
+
     }
 
     /**
@@ -56,7 +61,7 @@ public class BotonesManuales extends javax.swing.JPanel {
         cargaM.setBackground(new java.awt.Color(0, 255, 153));
         cargaM.setFont(new java.awt.Font("Dyuthi", 3, 24)); // NOI18N
         cargaM.setForeground(new java.awt.Color(0, 51, 255));
-        cargaM.setText("CREAR TABLA");
+        cargaM.setText("LISTAR TABLAS");
         cargaM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cargaMActionPerformed(evt);
@@ -67,13 +72,23 @@ public class BotonesManuales extends javax.swing.JPanel {
         cargaD.setBackground(new java.awt.Color(0, 255, 153));
         cargaD.setFont(new java.awt.Font("Dyuthi", 3, 24)); // NOI18N
         cargaD.setForeground(new java.awt.Color(0, 51, 255));
-        cargaD.setText("AGREGAR FILA");
+        cargaD.setText("LISTAR FILAS");
+        cargaD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargaDActionPerformed(evt);
+            }
+        });
         add(cargaD);
 
         eliminar.setBackground(new java.awt.Color(0, 255, 153));
         eliminar.setFont(new java.awt.Font("Dyuthi", 3, 24)); // NOI18N
         eliminar.setForeground(new java.awt.Color(0, 51, 255));
         eliminar.setText("ELIMINAR");
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarActionPerformed(evt);
+            }
+        });
         add(eliminar);
 
         reporte.setBackground(new java.awt.Color(0, 255, 153));
@@ -100,8 +115,27 @@ public class BotonesManuales extends javax.swing.JPanel {
 //        principal.setVisible(false);
 //        principal.setVisible(true);
         TablaPrueba nueva = new TablaPrueba(tablas);
-        principal.add(nueva,BorderLayout.CENTER);
+        principal.add(nueva, BorderLayout.CENTER);
+        principal.setVisible(false);
+        principal.setVisible(true);
+        JPanel nuevoPanel = new JPanel();
+        nuevoPanel.add(nueva);
+        principal.setCentro(nuevoPanel);
     }//GEN-LAST:event_cargaMActionPerformed
+
+    private void cargaDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaDActionPerformed
+        // TODO add your handling code here:       
+        ListarFilas nuevo = new ListarFilas(tablas, principal);
+        nuevo.setVisible(false);
+        nuevo.setVisible(true);
+        JPanel nuevoPanel = new JPanel();
+        nuevoPanel.add(nuevo);
+        principal.setCentro(nuevoPanel);
+    }//GEN-LAST:event_cargaDActionPerformed
+
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+        principal.setCentro(new JPanel());
+    }//GEN-LAST:event_eliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

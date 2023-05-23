@@ -7,6 +7,8 @@ package com.mycompany.proyecto_2_edd.Graficos;
 import com.mycompany.proyecto_2_edd.ListaTablas.ListaTabla;
 import com.mycompany.proyecto_2_edd.Listas.Tabla;
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
 
 /**
  *
@@ -15,12 +17,29 @@ import java.awt.BorderLayout;
 public class panelPrincipal extends javax.swing.JPanel {
     
     private ListaTabla tablas;
+    private JPanel centro;
+    private JPanel derecha;
+    private JPanel izquiera;
+    private JPanel arriba;
+    private JPanel abajo;
+
     /**
      * Creates new form panelPrincipal
      */
     public panelPrincipal(ListaTabla tablas) {
         this.tablas = tablas;
+        centro = new JPanel();
+        derecha = new JPanel();
+        izquiera = new JPanel();
+        arriba = new JPanel();
+        abajo = new JPanel();
+        derecha.setLayout(new CardLayout());
+        izquiera.setLayout(new CardLayout());
+        centro.setLayout(new CardLayout());
+        arriba.setLayout(new CardLayout());
+        abajo.setLayout(new CardLayout());
         initComponents();
+        this.setLayout(new BorderLayout());
         agregarBotones();
         
     }
@@ -37,12 +56,70 @@ public class panelPrincipal extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
     }// </editor-fold>//GEN-END:initComponents
     public void agregarBotones(){
-        this.setLayout(new BorderLayout());
-        BotonesDeCarga nuevo = new BotonesDeCarga(tablas);
-        this.add(nuevo,BorderLayout.EAST);
-        BotonesManuales manuales = new BotonesManuales(this,tablas);
-        this.add(manuales,BorderLayout.WEST);
         
+        BotonesDeCarga nuevo = new BotonesDeCarga(tablas);
+        derecha.add(nuevo);
+        BotonesManuales manuales = new BotonesManuales(this,tablas);
+        izquiera.add(manuales);
+        botonesArriba arribaB = new botonesArriba(tablas);
+        arriba.add(arribaB);
+        agregar();
+        
+    }
+    
+
+    public JPanel getCentro() {
+        return centro;
+    }
+ public void agregar() {
+        this.add(centro, BorderLayout.CENTER);
+        this.add(derecha, BorderLayout.EAST);
+        this.add(izquiera, BorderLayout.WEST);
+        this.add(arriba, BorderLayout.NORTH);
+        this.add(abajo, BorderLayout.SOUTH);
+        this.setVisible(false);
+        this.setVisible(true);
+    }
+    public void setCentro(JPanel centro) {
+        this.setVisible(false);
+        this.centro.setVisible(false);
+        this.centro = new JPanel();
+        this.centro.setLayout(new CardLayout());
+        this.centro.add(centro);
+        this.centro.setVisible(true);
+        agregar();
+    }
+
+    public JPanel getDerecha() {
+        return derecha;
+    }
+
+    public void setDerecha(JPanel derecha) {
+        this.derecha = derecha;
+    }
+
+    public JPanel getIzquiera() {
+        return izquiera;
+    }
+
+    public void setIzquiera(JPanel izquiera) {
+        this.izquiera = izquiera;
+    }
+
+    public JPanel getArriba() {
+        return arriba;
+    }
+
+    public void setArriba(JPanel arriba) {
+        this.arriba = arriba;
+    }
+
+    public JPanel getAbajo() {
+        return abajo;
+    }
+
+    public void setAbajo(JPanel abajo) {
+        this.abajo = abajo;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
