@@ -2,9 +2,9 @@
 <Estructuras>
 	<estructura>
 		<tabla>Cliente</tabla>
-		<Nit> int </Nit>
-		<Nombre> String </Nombre>
-		<clave> NoCuenta </clave>
+		<Nit>int</Nit>
+		<Nombre>String</Nombre>
+		<clave>NoCuenta</clave>
 	</estructura>
 	<estructura>
 		<tabla> factura </tabla>

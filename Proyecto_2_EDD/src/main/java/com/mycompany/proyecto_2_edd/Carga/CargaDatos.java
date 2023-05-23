@@ -50,22 +50,22 @@ public class CargaDatos {
                 NodeList hijos = raiz.getChildNodes();
                 for (int i = 0; i < hijos.getLength(); i++) {
                     Node nodo = hijos.item(i);
-                    System.out.println("entra al for: "+i);
+                    //System.out.println("entra al for: "+i);
                     // Verificar si el nodo es un elemento (etiqueta)
                     if (nodo.getNodeType() == Node.ELEMENT_NODE ) {
                         //Verifica que existe el nombre de la tabla 
                         if(tablas.existe(nodo.getNodeName())){
-                            System.out.println("tabla existe");
+                            //System.out.println("tabla existe");
                             //comienza a validar las entrada de texto
                             validarEntrada(nodo, tablas.buscar(nodo.getNodeName()));
-                            System.out.println("Termina de validar y agregar");
+                            //System.out.println("Termina de validar y agregar");
                         }
                         else{
-                            System.out.println("tabla no existe ");
+                            //System.out.println("tabla no existe ");
                         }
                     }
                 }
-
+                tablas.getPrimero().getTabla().getCampos().imprimirFinalAPrincipio();
             } else {
                 JOptionPane.showMessageDialog(null, "El nombre del archivo no es correcto");
             }
@@ -90,6 +90,7 @@ public class CargaDatos {
                 if(nuevo.getNodeType() == Node.ELEMENT_NODE){
                     System.out.println("Nodo:" + nuevo.getNodeName());
                     if(nodo.getTabla().existeTipo(nuevo.getNodeName(), nuevo.getTextContent())){
+                        //System.out.println("esto se manda: "+nuevo.getTextContent());
                         System.out.println("Con exito");
                     }
                     else{

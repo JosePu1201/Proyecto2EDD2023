@@ -56,24 +56,11 @@ public class Estructura {
                         //ingresa a la etqueta de Estrucura
                         Tabla nueva = new Tabla();
                         // Obtener el nombre del elemento              
-                        Nodo(nodo,nueva);
-                        System.out.println("1)///////////////////////////");
+                        Nodo(nodo,nueva);                      
                         tablas.agregarFinal(new NodoTabla(nueva));
-                        System.out.println("2)///////////////////////////");
-                        
-                        // Recorrer los atributos del elemento (si los tiene)
-                        /*if (nodo.hasAttributes()) {
-                            System.out.println("Atributos:");
-                            for (int j = 0; j < nodo.getAttributes().getLength(); j++) {
-                                Node atributo = nodo.getAttributes().item(j);
-                                String nombreAtributo = atributo.getNodeName();
-                                String valorAtributo = atributo.getNodeValue();
-                                System.out.println("- " + nombreAtributo + ": " + valorAtributo);
-                            }
-                        }*/
                     }
                 }
-                tablas.listar();
+//                tablas.listar();
             }
             else{
                 JOptionPane.showMessageDialog(null, "El nombre del archivo no es correcto");

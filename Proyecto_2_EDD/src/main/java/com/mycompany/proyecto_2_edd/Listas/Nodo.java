@@ -8,7 +8,7 @@ public class Nodo {
     Nodo anterior;
     Nodo siguiente;
 
-    public Nodo(String informacion,String tipo) {
+    public Nodo(String informacion, String tipo) {
         this.informacion = informacion;
         this.tipo = tipo;
     }
@@ -42,14 +42,14 @@ public class Nodo {
     }
 
     public void imprimirSiguientes() {
-        System.out.println("Atributo: " + informacion+"\tTipo: " + tipo);
+        System.out.println(toString());
         if (siguiente != null) {
             siguiente.imprimirSiguientes();
         }
     }
 
     public void imprimirAnteriores() {
-       System.out.println("Atributo: " + informacion+"\tTipo: " + tipo);
+        System.out.println(toString());
         if (anterior != null) {
             anterior.imprimirAnteriores();
         }
@@ -69,6 +69,66 @@ public class Nodo {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public void valTipo(String entrada) {
+        System.out.println("entra a validar con esta entrada: "+entrada);
+        System.out.println("Valida con este tipo de dato: "+tipo);
+        boolean banderaTipo = false;
+
+        if (tipo.equals("int")) {
+            try {
+                Integer.parseInt(entrada);
+                banderaTipo = true;
+            } catch (Exception a) {
+                System.out.println("error no es el mismo tipo ");
+            }
+        } else if (tipo.equals("double")) {
+            try {
+                Double.parseDouble(entrada);
+                banderaTipo = true;
+            } catch (Exception a) {
+                System.out.println("error no es el mismo tipo ");
+            }
+        } else if (tipo.equals("float")) {
+            try {
+                Float.parseFloat(entrada);
+                banderaTipo = true;
+            } catch (Exception a) {
+                System.out.println("error no es el mismo tipo ");
+            }
+        } else if (tipo.equals("boolean")) {
+            try {
+                Boolean.parseBoolean(entrada);
+                banderaTipo = true;
+            } catch (Exception a) {
+                System.out.println("error no es el mismo tipo ");
+            }
+        } else if (tipo.equals("char")) {
+            if(entrada.length() == 1){
+                banderaTipo = true;
+            }
+            else{
+                System.out.println("error");
+            }
+        }
+        else if(tipo.equals("String")){
+            banderaTipo = true;
+        }
+        
+        if(banderaTipo){
+            System.out.println("Es de un tipo correcto");
+            dato = entrada;
+        }
+        else{
+            System.out.println("bandera no funcional");
+        }
+
+    }
+
+    @Override
+    public String toString() {
+        return "Nodo:\n" + "Informacion: " + informacion + "\tTipo: " + tipo + "\tDato: " + dato + "\n";
     }
 
 }

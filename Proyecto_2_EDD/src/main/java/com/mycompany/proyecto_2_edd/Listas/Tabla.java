@@ -68,12 +68,14 @@ public class Tabla {
     }
     
     public boolean existeTipo(String tipo,String datos){
-        
+        System.out.println("Tipo: "+tipo);
+        System.out.println("Dato: "+datos);
         boolean bandera = false;
         Nodo aux = campos.head;
         while (aux != null) {            
             if(tipo.equals(aux.getInformacion())){
-                aux.setInformacion(datos);
+                System.out.println("informacion aux: "+aux.getInformacion());
+                aux.valTipo(datos);
                 bandera = true;
                 break;
             }
