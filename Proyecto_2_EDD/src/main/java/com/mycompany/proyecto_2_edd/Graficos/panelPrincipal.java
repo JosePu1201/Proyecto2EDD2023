@@ -61,7 +61,7 @@ public class panelPrincipal extends javax.swing.JPanel {
         derecha.add(nuevo);
         BotonesManuales manuales = new BotonesManuales(this,tablas);
         izquiera.add(manuales);
-        botonesArriba arribaB = new botonesArriba(tablas);
+        botonesArriba arribaB = new botonesArriba(tablas,this);
         arriba.add(arribaB);
         agregar();
         

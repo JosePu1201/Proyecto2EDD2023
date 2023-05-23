@@ -5,6 +5,7 @@
 package com.mycompany.proyecto_2_edd.Graficos;
 
 import com.mycompany.proyecto_2_edd.ListaTablas.ListaTabla;
+import com.mycompany.proyecto_2_edd.ListaTablas.NodoTabla;
 
 /**
  *
@@ -20,6 +21,7 @@ public class ListarFilas extends javax.swing.JPanel {
         this.tablas = tablas;
         this.prinicpal = principal;
         initComponents();
+        listarTablas();
     }
 
     /**
@@ -34,7 +36,7 @@ public class ListarFilas extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        combo = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -56,10 +58,10 @@ public class ListarFilas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(39, 134, 0, 0);
         jPanel1.add(jLabel1, gridBagConstraints);
 
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        combo.setForeground(new java.awt.Color(0, 0, 0));
+        combo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                comboActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -69,7 +71,7 @@ public class ListarFilas extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 157;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(33, 134, 0, 0);
-        jPanel1.add(jComboBox1, gridBagConstraints);
+        jPanel1.add(combo, gridBagConstraints);
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Aceptar para mostrar las filas de la tabla");
@@ -143,14 +145,14 @@ public class ListarFilas extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_comboActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> combo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -160,6 +162,10 @@ public class ListarFilas extends javax.swing.JPanel {
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
     public void listarTablas(){
-    
+        NodoTabla aux = tablas.getPrimero();
+        while (aux != null) {            
+            combo.addItem(aux.getTabla().getNombre());
+            aux = aux.getSiguiente();
+        }
     }
 }

@@ -89,7 +89,9 @@ public class TablaPrueba extends javax.swing.JPanel {
         while (aux != null) {            
             String [] entrada = {aux.getTabla().getNombre(),aux.getTabla().getClave(),aux.getTabla().getRelacion()};
             modelo.addRow(entrada);
+            aux.getTabla().imprimir();
             aux = aux.getSiguiente();
+            
         }
         
     

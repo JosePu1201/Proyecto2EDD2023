@@ -5,6 +5,8 @@
 package com.mycompany.proyecto_2_edd.Graficos;
 
 import com.mycompany.proyecto_2_edd.ListaTablas.ListaTabla;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
 
 /**
  *
@@ -16,9 +18,11 @@ public class botonesArriba extends javax.swing.JPanel {
      * Creates new form botonesArriba
      */
     private ListaTabla tablas;
-    
-    public botonesArriba(ListaTabla tablas) {
+    private panelPrincipal principal;
+
+    public botonesArriba(ListaTabla tablas, panelPrincipal principal) {
         this.tablas = tablas;
+        this.principal = principal;
         initComponents();
     }
 
@@ -36,12 +40,47 @@ public class botonesArriba extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridLayout());
 
+        jButton1.setBackground(new java.awt.Color(0, 255, 153));
+        jButton1.setFont(new java.awt.Font("Dyuthi", 3, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 51, 255));
         jButton1.setText("Listar Tablas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         add(jButton1);
 
+        jButton2.setBackground(new java.awt.Color(0, 255, 153));
+        jButton2.setFont(new java.awt.Font("Dyuthi", 3, 24)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 51, 255));
         jButton2.setText("Listar Listas");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         add(jButton2);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        TablaPrueba nueva = new TablaPrueba(tablas);
+        principal.add(nueva, BorderLayout.CENTER);
+        principal.setVisible(false);
+        principal.setVisible(true);
+        JPanel nuevoPanel = new JPanel();
+        nuevoPanel.add(nueva);
+        principal.setCentro(nuevoPanel);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        ListarFilas nuevo = new ListarFilas(tablas, principal);
+        nuevo.setVisible(false);
+        nuevo.setVisible(true);
+        JPanel nuevoPanel = new JPanel();
+        nuevoPanel.add(nuevo);
+        principal.setCentro(nuevoPanel);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

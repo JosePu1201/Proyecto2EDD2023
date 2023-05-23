@@ -47,11 +47,12 @@ public class BotonesDeCarga extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridLayout(0, 1));
 
-        jLabel1.setBackground(new java.awt.Color(0, 255, 51));
+        jLabel1.setBackground(new java.awt.Color(0, 255, 153));
         jLabel1.setFont(new java.awt.Font("Dyuthi", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ACCIONES POR ARCHIVOS EN FORMATO XML");
+        jLabel1.setOpaque(true);
         add(jLabel1);
 
         cargaM.setBackground(new java.awt.Color(0, 255, 153));

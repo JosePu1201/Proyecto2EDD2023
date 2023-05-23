@@ -4,6 +4,13 @@
  */
 package com.mycompany.proyecto_2_edd.Graficos;
 
+import com.mycompany.proyecto_2_edd.ListaTablas.ListaTabla;
+import com.mycompany.proyecto_2_edd.ListaTablas.NodoTabla;
+import com.mycompany.proyecto_2_edd.Listas.ListaEnlazadaDoble;
+import com.mycompany.proyecto_2_edd.Listas.Nodo;
+import com.mycompany.proyecto_2_edd.Listas.Tabla;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jose
@@ -13,8 +20,17 @@ public class TablaCrear extends javax.swing.JPanel {
     /**
      * Creates new form TablaCrear
      */
-    public TablaCrear() {
+    private Tabla nueva;
+    private ListaTabla tablas;
+    private boolean activo1 = false;
+    public TablaCrear(ListaTabla tablas) {
+        this.tablas = tablas;
         initComponents();
+        NodoTabla aux = tablas.getPrimero();
+        while (aux != null) {            
+            ref.addItem(aux.getTabla().getNombre());
+            aux = aux.getSiguiente();
+        }
     }
 
     /**
@@ -25,93 +41,263 @@ public class TablaCrear extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
         nombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        clave = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        nombreA = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        tipo = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        ref = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
-        setLayout(null);
+        setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setText("Nombre");
-        add(jLabel1);
-        jLabel1.setBounds(300, 40, 55, 15);
-        add(nombre);
-        nombre.setBounds(470, 40, 133, 23);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(56, 104, 0, 0);
+        add(jLabel1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 118;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(56, 10, 0, 0);
+        add(nombre, gridBagConstraints);
 
         jLabel2.setText("Clave");
-        add(jLabel2);
-        jLabel2.setBounds(300, 90, 38, 15);
-        add(jTextField1);
-        jTextField1.setBounds(470, 80, 133, 23);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(27, 104, 0, 0);
+        add(jLabel2, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 118;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(17, 10, 0, 0);
+        add(clave, gridBagConstraints);
 
         jLabel3.setText("Atributos ");
-        add(jLabel3);
-        jLabel3.setBounds(390, 170, 70, 15);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(9, 23, 0, 0);
+        add(jLabel3, gridBagConstraints);
 
         jButton1.setText("Confirmar nombre y clave");
-        add(jButton1);
-        jButton1.setBounds(350, 130, 209, 31);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.ipadx = 94;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(25, 104, 0, 0);
+        add(jButton1, gridBagConstraints);
 
         jLabel4.setText("Nombre");
-        add(jLabel4);
-        jLabel4.setBounds(300, 210, 55, 15);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(25, 104, 0, 0);
+        add(jLabel4, gridBagConstraints);
 
         jLabel5.setText("Tipo");
-        add(jLabel5);
-        jLabel5.setBounds(300, 250, 30, 15);
-        add(jTextField2);
-        jTextField2.setBounds(440, 200, 144, 23);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(25, 104, 0, 0);
+        add(jLabel5, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.ipadx = 129;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 73, 0, 0);
+        add(nombreA, gridBagConstraints);
 
         jButton2.setText("Agregar atributo");
-        add(jButton2);
-        jButton2.setBounds(380, 290, 180, 31);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 31;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 13, 0, 0);
+        add(jButton2, gridBagConstraints);
 
         jButton3.setText("Crear tabla");
-        add(jButton3);
-        jButton3.setBounds(380, 430, 110, 31);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(42, 13, 59, 0);
+        add(jButton3, gridBagConstraints);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "int", "double", "string", "float", "char", "long", "integer" }));
-        add(jComboBox1);
-        jComboBox1.setBounds(440, 250, 144, 25);
+        tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "int", "double", "string", "float", "char", "long", "integer" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 62;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(25, 73, 0, 0);
+        add(tipo, gridBagConstraints);
 
         jLabel6.setText("Referncia");
-        add(jLabel6);
-        jLabel6.setBounds(300, 360, 67, 15);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 104, 0, 0);
+        add(jLabel6, gridBagConstraints);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(jComboBox2);
-        jComboBox2.setBounds(380, 360, 75, 25);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 76;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 13, 0, 0);
+        add(ref, gridBagConstraints);
 
         jButton4.setText("Agregar ");
-        add(jButton4);
-        jButton4.setBounds(530, 350, 110, 31);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 11;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipadx = 19;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 38, 0, 0);
+        add(jButton4, gridBagConstraints);
 
         jLabel7.setText("Precione Agregar si decea hacer una referencia a otra tabla");
-        add(jLabel7);
-        jLabel7.setBounds(250, 330, 426, 15);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 18;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(9, 54, 0, 57);
+        add(jLabel7, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        nueva = new Tabla();
+        if(!nombre.getText().isEmpty() && !clave.getText().isEmpty()){
+            nueva.setNombre(nombre.getText());
+            nueva.setClave(clave.getText());
+            jButton1.setEnabled(false);
+            activo1 = true;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Algun campo esta vacio");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(activo1){
+            if(!nombreA.getText().isEmpty()){
+                nueva.getCampos().agregarAlFinal(new Nodo(nombreA.getText(), tipo.getSelectedItem().toString()));
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Nombre de atributo vacio");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Primero debe de crear la tabla y la estructura");  
+        }
+        nombreA.setText("");
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if(ref.getSelectedItem() != null){
+            nueva.setRelacion(ref.getSelectedItem().toString());
+            jButton4.setEnabled(false);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "No hay ninguna tabla para relacionar");
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        boolean bandera = false;
+        Nodo aux = nueva.getCampos().getHead();
+        while (aux != null) {            
+            System.out.println("informacion0: "+aux.getInformacion());
+            if(aux.getInformacion().equals(nueva.getClave())){
+                bandera = true;
+                break;
+            }
+            aux = aux.getSiguiente();
+        }
+        if(bandera){
+            tablas.agregarFinal(new NodoTabla(nueva));
+            JOptionPane.showMessageDialog(null, "Tabla creada con exito");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "La clave que agregaste no es correcta");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField clave;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -119,8 +305,9 @@ public class TablaCrear extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField nombre;
+    private javax.swing.JTextField nombreA;
+    private javax.swing.JComboBox<String> ref;
+    private javax.swing.JComboBox<String> tipo;
     // End of variables declaration//GEN-END:variables
 }

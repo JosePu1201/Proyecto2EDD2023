@@ -7,13 +7,13 @@
 		<clave>NoCuenta</clave>
 	</estructura>
 	<estructura>
-		<tabla> factura </tabla>
-		<NoFactura> int </NoFactura>
-		<Nit> int </Nit>
-		<Fecha> char </Fecha>
-		<Lugar> char </Lugar>
-		<Valor> int </Valor>
-		<clave> Nofactura </clave>
+		<tabla>Factura</tabla>
+		<NoFactura>int</NoFactura>
+		<Nit>int</Nit>
+		<Fecha>char</Fecha>
+		<Lugar>char</Lugar>
+		<Valor>int</Valor>
+		<clave>Nofactura</clave>
 		<relacion>Cliente</relacion>
 	</estructura>
 	<estructura>
@@ -21,9 +21,9 @@
 		<NoTienda>int</NoTienda>
 	</estructura>
 	<estructura>
-		<tabla> Vendedor </tabla>
-		<Sueldo> int </Sueldo>
-		<NoEmpleado> int </NoEmpleado>
+		<tabla>Vendedor</tabla>
+		<Sueldo>int</Sueldo>
+		<NoEmpleado>int</NoEmpleado>
 		<relacion>Tienda</relacion>
 	</estructura>
 </Estructuras>

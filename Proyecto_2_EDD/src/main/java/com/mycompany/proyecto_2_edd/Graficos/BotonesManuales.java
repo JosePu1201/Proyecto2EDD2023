@@ -51,17 +51,18 @@ public class BotonesManuales extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridLayout(0, 1));
 
-        jLabel1.setBackground(new java.awt.Color(0, 255, 51));
+        jLabel1.setBackground(new java.awt.Color(0, 255, 153));
         jLabel1.setFont(new java.awt.Font("Dyuthi", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ACCIONES MANUALES");
+        jLabel1.setOpaque(true);
         add(jLabel1);
 
         cargaM.setBackground(new java.awt.Color(0, 255, 153));
         cargaM.setFont(new java.awt.Font("Dyuthi", 3, 24)); // NOI18N
         cargaM.setForeground(new java.awt.Color(0, 51, 255));
-        cargaM.setText("LISTAR TABLAS");
+        cargaM.setText("CREAR TABLA");
         cargaM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cargaMActionPerformed(evt);
@@ -108,29 +109,15 @@ public class BotonesManuales extends javax.swing.JPanel {
     }//GEN-LAST:event_reporteActionPerformed
 
     private void cargaMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaMActionPerformed
-//        TablaCrear nueva = new TablaCrear();
-//        nueva.setVisible(false);
-//        nueva.setVisible(true);
-//        principal.add(nueva,BorderLayout.CENTER);
-//        principal.setVisible(false);
-//        principal.setVisible(true);
-        TablaPrueba nueva = new TablaPrueba(tablas);
-        principal.add(nueva, BorderLayout.CENTER);
-        principal.setVisible(false);
-        principal.setVisible(true);
-        JPanel nuevoPanel = new JPanel();
-        nuevoPanel.add(nueva);
-        principal.setCentro(nuevoPanel);
+        TablaCrear nueva = new TablaCrear(tablas);
+        nueva.setVisible(true);
+        principal.setCentro(nueva);
+
     }//GEN-LAST:event_cargaMActionPerformed
 
     private void cargaDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaDActionPerformed
         // TODO add your handling code here:       
-        ListarFilas nuevo = new ListarFilas(tablas, principal);
-        nuevo.setVisible(false);
-        nuevo.setVisible(true);
-        JPanel nuevoPanel = new JPanel();
-        nuevoPanel.add(nuevo);
-        principal.setCentro(nuevoPanel);
+       
     }//GEN-LAST:event_cargaDActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed

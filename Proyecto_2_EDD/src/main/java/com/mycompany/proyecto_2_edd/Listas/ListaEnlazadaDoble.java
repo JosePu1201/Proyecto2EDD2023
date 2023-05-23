@@ -5,6 +5,22 @@ public class ListaEnlazadaDoble {
     Nodo head;
     Nodo tail;
 
+    public Nodo getHead() {
+        return head;
+    }
+
+    public void setHead(Nodo head) {
+        this.head = head;
+    }
+
+    public Nodo getTail() {
+        return tail;
+    }
+
+    public void setTail(Nodo tail) {
+        this.tail = tail;
+    }
+
     public ListaEnlazadaDoble() {
 
     }
