@@ -73,7 +73,7 @@ public class BotonesManuales extends javax.swing.JPanel {
         cargaD.setBackground(new java.awt.Color(0, 255, 153));
         cargaD.setFont(new java.awt.Font("Dyuthi", 3, 24)); // NOI18N
         cargaD.setForeground(new java.awt.Color(0, 51, 255));
-        cargaD.setText("LISTAR FILAS");
+        cargaD.setText("AGREGAR FILAS");
         cargaD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cargaDActionPerformed(evt);
@@ -116,7 +116,9 @@ public class BotonesManuales extends javax.swing.JPanel {
     }//GEN-LAST:event_cargaMActionPerformed
 
     private void cargaDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaDActionPerformed
-        // TODO add your handling code here:       
+        agregarFila nuevo = new agregarFila(tablas, principal);
+        nuevo.setVisible(true);
+        principal.setCentro(nuevo);
        
     }//GEN-LAST:event_cargaDActionPerformed
 
