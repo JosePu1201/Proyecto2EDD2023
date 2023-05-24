@@ -1,7 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Entradas>
 	<Cliente>
-		<Nit>155</Nit>
+		<Nit>1556</Nit>
 		<Nombre>JoseLuis</Nombre>
 	</Cliente>
+	<Cliente>
+		<Nit>145657</Nit>
+		<Nombre>JoseLuis</Nombre>
+	</Cliente>
+	<Cliente>
+		<Nit>154564568</Nit>
+		<Nombre>JoseLuis</Nombre>
+	</Cliente>
+	<Cliente>
+		<Nit>154564569</Nit>
+		<Nombre>JoseLuis</Nombre>
+	</Cliente>
+	<Cliente>
+		<Nit>164564560</Nit>
+		<Nombre>JoseLuis</Nombre>
+	</Cliente>
+	<Cliente>
+		<Nit>164564561</Nit>
+		<Nombre>JoseLuis</Nombre>
+	</Cliente>
+	<Factura>
+		<NoFactura>157</NoFactura>
+		<Nit>2200</Nit>
+		<Fecha>a</Fecha>
+		<Lugar>a</Lugar>
+		<Valor>132</Valor>
+	</Factura>
+	<Factura>
+		<NoFactura>158</NoFactura>
+		<Nit>22020</Nit>
+		<Fecha>b</Fecha>
+		<Lugar>b</Lugar>
+		<Valor>135</Valor>
+	</Factura>
 </Entradas>

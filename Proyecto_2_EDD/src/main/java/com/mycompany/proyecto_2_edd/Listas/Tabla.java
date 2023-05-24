@@ -4,6 +4,8 @@
  */
 package com.mycompany.proyecto_2_edd.Listas;
 
+import com.mycompany.proyecto_2_edd.ListaFilas.ListaSimpleFila;
+
 /**
  *
  * @author jose
@@ -14,9 +16,11 @@ public class Tabla {
     private String relacion;
     private int claveEntrada;
     private ListaEnlazadaDoble campos ;
+    private ListaSimpleFila filas;
 
     public Tabla() {
        campos = new ListaEnlazadaDoble();
+       filas = new ListaSimpleFila();
     }
 
     public int getClaveEntrada() {
@@ -58,6 +62,14 @@ public class Tabla {
     public void setCampos(ListaEnlazadaDoble campos) {
         this.campos = campos;
     }
+
+    public ListaSimpleFila getFilas() {
+        return filas;
+    }
+
+    public void setFilas(ListaSimpleFila filas) {
+        this.filas = filas;
+    }
     
     public void imprimir(){
         System.out.println("Nombre: "+nombre);
@@ -67,11 +79,11 @@ public class Tabla {
         
     }
     
-    public boolean existeTipo(String tipo,String datos){
+    public boolean existeTipo(String tipo,String datos,ListaEnlazadaDoble filas){
         System.out.println("Tipo: "+tipo);
         System.out.println("Dato: "+datos);
         boolean bandera = false;
-        Nodo aux = campos.head;
+        Nodo aux = filas.head;
         while (aux != null) {            
             if(tipo.equals(aux.getInformacion())){
                 System.out.println("informacion aux: "+aux.getInformacion());

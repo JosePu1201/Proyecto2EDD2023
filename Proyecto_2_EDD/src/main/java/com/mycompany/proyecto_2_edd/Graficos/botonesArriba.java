@@ -4,7 +4,12 @@
  */
 package com.mycompany.proyecto_2_edd.Graficos;
 
+import com.mycompany.proyecto_2_edd.ArbolBPlus.ListaSimpleArbol.ListaSimple;
+import com.mycompany.proyecto_2_edd.ListaFilas.ListaSimpleFila;
+import com.mycompany.proyecto_2_edd.ListaFilas.NodoFila;
 import com.mycompany.proyecto_2_edd.ListaTablas.ListaTabla;
+import com.mycompany.proyecto_2_edd.Listas.ListaEnlazadaDoble;
+import com.mycompany.proyecto_2_edd.Listas.Nodo;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
@@ -80,6 +85,20 @@ public class botonesArriba extends javax.swing.JPanel {
         JPanel nuevoPanel = new JPanel();
         nuevoPanel.add(nuevo);
         principal.setCentro(nuevoPanel);
+        if(tablas.getPrimero().getTabla().getFilas().getPrimero() == null){
+            System.out.println("Es nulo");
+           
+        }else{
+            System.out.println("imprimiendo");
+            NodoFila aux =  tablas.getPrimero().getTabla().getFilas().getPrimero();
+            while (aux != null) {
+                aux.getCampos().imprimirFinalAPrincipio();
+                aux = aux.getSiguiente();
+            }
+        }
+        
+       
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

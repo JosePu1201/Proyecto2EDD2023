@@ -4,16 +4,23 @@
  */
 package com.mycompany.proyecto_2_edd.Graficos;
 
+import com.mycompany.proyecto_2_edd.ListaFilas.ListaSimpleFila;
+import com.mycompany.proyecto_2_edd.ListaFilas.NodoFila;
 import com.mycompany.proyecto_2_edd.ListaTablas.ListaTabla;
 import com.mycompany.proyecto_2_edd.ListaTablas.NodoTabla;
+import com.mycompany.proyecto_2_edd.Listas.Nodo;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author jose
  */
 public class ListarFilas extends javax.swing.JPanel {
+
     private ListaTabla tablas;
     private panelPrincipal prinicpal;
+
     /**
      * Creates new form ListarFilas
      */
@@ -42,7 +49,7 @@ public class ListarFilas extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla = new javax.swing.JTable();
 
         setLayout(new java.awt.GridLayout(0, 1));
 
@@ -125,7 +132,7 @@ public class ListarFilas extends javax.swing.JPanel {
 
         add(jPanel1);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -136,14 +143,69 @@ public class ListarFilas extends javax.swing.JPanel {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla);
 
         add(jScrollPane1);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        DefaultTableModel modelo = new DefaultTableModel();
+        tabla.setModel(modelo);
+        eliminarFilas(modelo);
+        //eliminarCol();
+        NodoTabla aux = tablas.getPrimero();
+        int tam = 0;
+        while (aux != null) {
+            if (aux.getTabla().getNombre().equals(combo.getSelectedItem().toString())) {
+                jLabel4.setText(combo.getSelectedItem().toString());
+                Nodo aux1 = aux.getTabla().getCampos().getHead();
+                while (aux1 != null) {
+                    tam++;
+                    aux1 = aux1.getSiguiente();
+                }
+                aux1 = aux.getTabla().getCampos().getHead();
+                while (aux1 != null) {
+                    modelo.addColumn(aux1.getInformacion());
+                    aux1 = aux1.getSiguiente();
+                }
+                agregarFila(modelo, aux.getTabla().getFilas(), tam);
+
+                break;
+            }
+            aux = aux.getSiguiente();
+        }
+        tabla.setVisible(true);
+        this.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+    private void agregarFila(DefaultTableModel modelo, ListaSimpleFila lista, int tam) {
+        NodoFila aux = lista.getPrimero();
+        while (aux != null) {
+            String entra[] = new String[tam];
+            int i = 0;
+            Nodo aux1 = aux.getCampos().getHead();
+            while (aux1 != null) {
+                
+                if (i < tam) {
+                    System.out.print("\t"+aux1.getDato());
+                    entra[i] = aux1.getDato();
+                    i++;
+                }
+                aux1 = aux1.getSiguiente();
+            }
+            System.out.println("");
+            modelo.addRow(entra);
+            aux = aux.getSiguiente();
+        }
+    }
+
+    private void eliminarFilas(DefaultTableModel modelo) {
+        int tam = modelo.getRowCount() - 1;
+        for (int i = tam; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+
+    }
 
     private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboActionPerformed
         // TODO add your handling code here:
@@ -159,11 +221,11 @@ public class ListarFilas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
-    public void listarTablas(){
+    public void listarTablas() {
         NodoTabla aux = tablas.getPrimero();
-        while (aux != null) {            
+        while (aux != null) {
             combo.addItem(aux.getTabla().getNombre());
             aux = aux.getSiguiente();
         }

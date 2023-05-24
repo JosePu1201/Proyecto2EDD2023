@@ -4,8 +4,11 @@
  */
 package com.mycompany.proyecto_2_edd.Carga;
 
+import com.mycompany.proyecto_2_edd.ListaFilas.NodoFila;
 import com.mycompany.proyecto_2_edd.ListaTablas.ListaTabla;
 import com.mycompany.proyecto_2_edd.ListaTablas.NodoTabla;
+import com.mycompany.proyecto_2_edd.Listas.ListaEnlazadaDoble;
+import com.mycompany.proyecto_2_edd.Listas.Nodo;
 import com.mycompany.proyecto_2_edd.Listas.Tabla;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -50,22 +53,25 @@ public class CargaDatos {
                 NodeList hijos = raiz.getChildNodes();
                 for (int i = 0; i < hijos.getLength(); i++) {
                     Node nodo = hijos.item(i);
-                    //System.out.println("entra al for: "+i);
+                    System.out.println("-----------------entra al for: "+i);
                     // Verificar si el nodo es un elemento (etiqueta)
                     if (nodo.getNodeType() == Node.ELEMENT_NODE ) {
                         //Verifica que existe el nombre de la tabla 
-                        if(tablas.existe(nodo.getNodeName())){
+                        Tabla auxt = tablas.existe(nodo.getNodeName());
+                        System.out.println(auxt.toString());
+                       // auxt.imprimir();
                             //System.out.println("tabla existe");
                             //comienza a validar las entrada de texto
-                            validarEntrada(nodo, tablas.buscar(nodo.getNodeName()));
-                            //System.out.println("Termina de validar y agregar");
-                        }
-                        else{
-                            //System.out.println("tabla no existe ");
-                        }
+                            if(auxt != null){
+                            validarEntrada(nodo, auxt);
+                            }
+//                            
+                            System.out.println("Termina de validar y agregar");
+
                     }
+                    System.out.println("----------------------sale for------------------------");
                 }
-                tablas.getPrimero().getTabla().getCampos().imprimirFinalAPrincipio();
+                
             } else {
                 JOptionPane.showMessageDialog(null, "El nombre del archivo no es correcto");
             }
@@ -75,23 +81,24 @@ public class CargaDatos {
         }
     }
 
-    public void validarEntrada(Node estructuraEntrada,NodoTabla nodo) {
+    public void validarEntrada(Node estructuraEntrada,Tabla tabla) {
         //Si hay una relacion
-        System.out.println("Entra en esto");
-        if(nodo.getTabla().getRelacion() != null){
-            System.out.println("Tiene Relacion");
+        ListaEnlazadaDoble nuevoFila = clon(tabla.getCampos());
+       
+        if(tabla.getRelacion() != null){
+            
         }
         //sino hay una relacion 
         else{
-            System.out.println("No tiene relacion");
+
              NodeList hijos = estructuraEntrada.getChildNodes();
              for (int i = 0; i < hijos.getLength(); i++) {
+                System.out.println("recorrido de nodos: "+i  );
                 Node nuevo = hijos.item(i);
                 if(nuevo.getNodeType() == Node.ELEMENT_NODE){
                     System.out.println("Nodo:" + nuevo.getNodeName());
-                    if(nodo.getTabla().existeTipo(nuevo.getNodeName(), nuevo.getTextContent())){
-                        //System.out.println("esto se manda: "+nuevo.getTextContent());
-                        System.out.println("Con exito");
+                    if(tabla.existeTipo(nuevo.getNodeName(), nuevo.getTextContent(),nuevoFila)){
+                        
                     }
                     else{
                         System.out.println("Hay un problema :c");
@@ -101,6 +108,18 @@ public class CargaDatos {
             }
         
         }
+        tabla.getFilas().agregarNuevo(new NodoFila(nuevoFila));
+        nuevoFila = null;
+    }
+    public ListaEnlazadaDoble clon(ListaEnlazadaDoble campos){
+        ListaEnlazadaDoble aux = new ListaEnlazadaDoble();
+        Nodo aux1 = campos.getHead();
+        while (aux1 != null) {            
+            aux.agregarAlFinal(new Nodo(aux1.getInformacion(), aux1.getTipo()));
+            aux1 = aux1.getSiguiente();
+        }
+        return aux;
+        
     }
 
 

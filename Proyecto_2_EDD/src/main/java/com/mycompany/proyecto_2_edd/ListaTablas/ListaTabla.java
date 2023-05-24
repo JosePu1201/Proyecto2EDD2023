@@ -4,6 +4,8 @@
  */
 package com.mycompany.proyecto_2_edd.ListaTablas;
 
+import com.mycompany.proyecto_2_edd.Listas.Tabla;
+
 /**
  *
  * @author jose
@@ -80,18 +82,20 @@ public class ListaTabla {
         }
         return valido;
     }
-    public boolean existe(String entrada) {
+    public Tabla existe(String entrada) {
+        Tabla auxt = null;
         boolean existe = false;
         NodoTabla aux = primero;
         while (aux != null) {
             //Valida que exista la tabla 
             if (aux.getTabla().getNombre().equals(entrada)) {
                 existe = true;
+                auxt = aux.getTabla();
                 break;
             }
             aux = aux.getSiguiente();
         }
-        return existe;
+        return auxt;
     }
     
     public NodoTabla buscar(String nombre){
