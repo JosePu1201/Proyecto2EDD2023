@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Entradas>
 	<Cliente>
-		<Nit>1556</Nit>
-	</Cliente>
-	<Cliente>
 		<NoCuenta>15555</NoCuenta>
 		<Nit>145657</Nit>
 		<Nombre>JoseLuis</Nombre>
 	</Cliente>
 	<Cliente>
+		<NoCuenta>1234</NoCuenta>
 		<Nit>154564568</Nit>
 		<Nombre>JoseLuis</Nombre>
 	</Cliente>
 	<Cliente>
+		<NoCuenta>9955</NoCuenta>
 		<Nit>154564569</Nit>
 		<Nombre>JoseLuis</Nombre>
 	</Cliente>
 	<Cliente>
+		<NoCuenta>9131</NoCuenta>
 		<Nit>164564560</Nit>
 		<Nombre>JoseLuis</Nombre>
 	</Cliente>
 	<Cliente>
+		<NoCuenta>0005</NoCuenta>
 		<Nit>164564561</Nit>
 		<Nombre>JoseLuis</Nombre>
 	</Cliente>

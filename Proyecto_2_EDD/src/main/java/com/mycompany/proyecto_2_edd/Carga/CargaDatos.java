@@ -130,7 +130,7 @@ public class CargaDatos {
             System.out.println("Datos incompletos");
         }
     }
-    public ListaEnlazadaDoble clon(ListaEnlazadaDoble campos){
+    public static ListaEnlazadaDoble clon(ListaEnlazadaDoble campos){
         ListaEnlazadaDoble aux = new ListaEnlazadaDoble();
         Nodo aux1 = campos.getHead();
         while (aux1 != null) {            

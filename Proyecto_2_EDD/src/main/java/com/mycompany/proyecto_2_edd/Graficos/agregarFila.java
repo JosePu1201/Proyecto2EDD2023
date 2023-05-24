@@ -4,7 +4,14 @@
  */
 package com.mycompany.proyecto_2_edd.Graficos;
 
+import com.mycompany.proyecto_2_edd.Carga.CargaDatos;
+import com.mycompany.proyecto_2_edd.ListaFilas.NodoFila;
 import com.mycompany.proyecto_2_edd.ListaTablas.ListaTabla;
+import com.mycompany.proyecto_2_edd.ListaTablas.NodoTabla;
+import com.mycompany.proyecto_2_edd.Listas.ListaEnlazadaDoble;
+import com.mycompany.proyecto_2_edd.Listas.Nodo;
+import com.mycompany.proyecto_2_edd.Listas.Tabla;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,10 +24,14 @@ public class agregarFila extends javax.swing.JPanel {
      */
     private ListaTabla tablas;
     private panelPrincipal panel;
+    private String seleccion;
+    ListaEnlazadaDoble nuevo = new ListaEnlazadaDoble();
+    Tabla aux = null;
     public agregarFila(ListaTabla tablas, panelPrincipal panel) {
         this.panel = panel;
         this.tablas = tablas;
         initComponents();
+        tablas();
     }
 
     /**
@@ -35,15 +46,16 @@ public class agregarFila extends javax.swing.JPanel {
 
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboTab = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        comboAt = new javax.swing.JComboBox<>();
+        atributo = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        crearFila = new javax.swing.JButton();
 
         setLayout(new java.awt.GridLayout(3, 0));
 
@@ -53,6 +65,12 @@ public class agregarFila extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(204, 0, 51));
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Seleccionar Tabla");
+        jButton1.setOpaque(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
@@ -62,15 +80,16 @@ public class agregarFila extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(55, 63, 100, 181);
         jPanel3.add(jButton1, gridBagConstraints);
 
-        jComboBox1.setBackground(new java.awt.Color(204, 0, 0));
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
+        comboTab.setBackground(new java.awt.Color(255, 0, 0));
+        comboTab.setForeground(new java.awt.Color(0, 0, 0));
+        comboTab.setOpaque(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.ipadx = 205;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(58, 104, 0, 0);
-        jPanel3.add(jComboBox1, gridBagConstraints);
+        jPanel3.add(comboTab, gridBagConstraints);
 
         jLabel1.setBackground(new java.awt.Color(255, 0, 0));
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -88,11 +107,10 @@ public class agregarFila extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jComboBox2.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        comboAt.setForeground(new java.awt.Color(0, 0, 0));
+        comboAt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                comboAtActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -103,11 +121,11 @@ public class agregarFila extends javax.swing.JPanel {
         gridBagConstraints.ipady = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 94, 125, 0);
-        jPanel1.add(jComboBox2, gridBagConstraints);
+        jPanel1.add(comboAt, gridBagConstraints);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        atributo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                atributoActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -118,10 +136,16 @@ public class agregarFila extends javax.swing.JPanel {
         gridBagConstraints.ipady = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 189, 125, 0);
-        jPanel1.add(jTextField1, gridBagConstraints);
+        jPanel1.add(atributo, gridBagConstraints);
 
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Agregar");
+        jButton2.setOpaque(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
@@ -151,40 +175,127 @@ public class agregarFila extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(0, 51, 255));
 
+        crearFila.setForeground(new java.awt.Color(0, 0, 0));
+        crearFila.setText("Agregar Lista");
+        crearFila.setEnabled(false);
+        crearFila.setOpaque(false);
+        crearFila.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearFilaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 964, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(364, 364, 364)
+                .addComponent(crearFila, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(398, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 223, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(crearFila)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         add(jPanel2);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void comboAtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_comboAtActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void atributoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atributoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_atributoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        comboAt.removeAllItems();
+        if (comboTab.getSelectedItem() != null) {
+            seleccion = comboTab.getSelectedItem().toString();
+            agregarCombo();
+            jButton1.setEnabled(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay tablas para agregar nombres");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (!atributo.getText().isEmpty() && !comboAt.getSelectedItem().toString().isEmpty()) {
+            System.out.println("entra al boton");
+            aux = tablas.existe(seleccion);
+            System.out.println("existe la tabla ");
+            aux.imprimir();
+            System.out.println("imprime tabla ");
+            System.out.println("-------------------------------------");
+            aux.existeTipo(comboAt.getSelectedItem().toString(), atributo.getText(), nuevo);
+            System.out.println("Esiste tipo");
+            agregarCombo2();
+            validar();
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void crearFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearFilaActionPerformed
+        aux.getFilas().agregarNuevo(new NodoFila(nuevo));
+    }//GEN-LAST:event_crearFilaActionPerformed
+    public void tablas() {
+        NodoTabla aux = tablas.getPrimero();
+        while (aux != null) {
+            comboTab.addItem(aux.getTabla().getNombre());
+            aux = aux.getSiguiente();
+        }
+    }
+
+    public void validar() {
+        int count = comboAt.getItemCount();
+        System.out.println("Contador : "+count);
+        if(count == 0){
+            jButton2.setEnabled(false);
+            crearFila.setEnabled(true);
+        }
+    }
+
+    private void agregarCombo() {
+        NodoTabla aux = tablas.getPrimero();
+        while (aux != null) {
+            if (seleccion.equals(aux.getTabla().getNombre())) {
+                nuevo = CargaDatos.clon(aux.getTabla().getCampos());
+                break;
+            }
+            aux = aux.getSiguiente();
+        }
+        agregarCombo2();
+
+    }
+
+    private void agregarCombo2() {
+        comboAt.removeAllItems();
+        Nodo aux1 = nuevo.getHead();
+        while (aux1 != null) {
+            if (aux1.getDato() == null) {
+                comboAt.addItem(aux1.getInformacion());
+            }
+            aux1 = aux1.getSiguiente();
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField atributo;
+    private javax.swing.JComboBox<String> comboAt;
+    private javax.swing.JComboBox<String> comboTab;
+    private javax.swing.JButton crearFila;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

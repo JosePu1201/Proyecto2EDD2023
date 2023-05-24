@@ -122,7 +122,7 @@ public class Nodo {
         }
         
         if(banderaTipo){
-            
+            System.out.println("Tipo: "+tipo+"\tDato: "+dato);
             dato = entrada;
         }
         else{

@@ -54,6 +54,25 @@ public class ListaSimpleFila {
     public void setOcupado(int ocupado) {
         this.ocupado = ocupado;
     }
-    
+    public void eliminar(String campo,String dato){
+        if(primero == null){
+            System.out.println("Las filas estan vacias");
+        }
+        if(primero.getCampos().buscar(campo,dato)){
+            primero = primero.getSiguiente();
+        }
+        
+        NodoFila nodoActual = primero;
+        NodoFila nodoAnterior = null;
+        
+        while (nodoActual != null && !nodoActual.getCampos().buscar(campo, dato)) {            
+            nodoAnterior = nodoActual;
+            nodoActual = nodoActual.getSiguiente();
+        }
+        if(nodoActual == null){
+            System.out.println("No se encuentra en la lista");
+        }
+        nodoAnterior.setSiguiente(nodoActual.getSiguiente());
+    }
     
 }

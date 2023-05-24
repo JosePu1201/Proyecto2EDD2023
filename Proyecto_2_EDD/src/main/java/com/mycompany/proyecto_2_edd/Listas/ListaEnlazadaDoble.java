@@ -134,4 +134,32 @@ public class ListaEnlazadaDoble {
         }
         return bandera;
     }
+    
+    public boolean buscar(String campo,String dato){
+        boolean bandera = false;
+        Nodo aux = head;
+        while (aux != null) {
+            System.out.println(aux.getInformacion()+ " = "+campo);
+            System.out.println(aux.getDato()+" = " +dato);
+            if(aux.getInformacion().equals(campo) && aux.getDato().equals(dato)){
+                bandera = true;
+                break;
+            }
+            aux = aux.getSiguiente();
+            
+        }
+        return  bandera;
+    }
+        public boolean buscarCampo(String campo){
+        boolean bandera = false;
+        Nodo aux = head;
+        while (aux != null) {            
+            if(aux.getInformacion().equals(campo) ){
+                bandera = true;
+            }
+            aux = aux.getSiguiente();
+            break;
+        }
+        return  bandera;
+    }
 }
