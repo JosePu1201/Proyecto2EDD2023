@@ -85,8 +85,7 @@ public class Tabla {
         boolean bandera = false;
         Nodo aux = filas.head;
         while (aux != null) {            
-            if(tipo.equals(aux.getInformacion())){
-                System.out.println("informacion aux: "+aux.getInformacion());
+            if(tipo.equals(aux.getInformacion())){              
                 aux.valTipo(datos);
                 bandera = true;
                 break;
@@ -94,5 +93,21 @@ public class Tabla {
             aux = aux.getSiguiente();
         }
         return bandera;
+    }
+    
+    public boolean existeClave(){
+        System.out.println("Clave:"+clave);
+        boolean ex = false;
+        Nodo aux = campos.getHead();
+        while (aux != null) {
+            System.out.println("Nodo: "+ aux.getInformacion());            
+            if(clave.equals(aux.getInformacion())){
+                System.out.println("existe para: "+clave);
+                ex = true;
+                break;
+            }
+            aux = aux.getSiguiente();
+        }
+        return ex;
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Estructuras>
 	<estructura>
+		<NoCuenta>int</NoCuenta>
 		<tabla>Cliente</tabla>
 		<Nit>int</Nit>
 		<Nombre>String</Nombre>
@@ -13,11 +14,8 @@
 		<Fecha>char</Fecha>
 		<Lugar>char</Lugar>
 		<Valor>int</Valor>
-		<clave>Nofactura</clave>
-	</estructura>
-	<estructura>
-		<tabla>Tienda</tabla>
-		<NoTienda>int</NoTienda>
+		<clave>NoFactura</clave>
+		<relacion>Cliente</relacion>
 	</estructura>
 	<estructura>
 		<tabla>Vendedor</tabla>

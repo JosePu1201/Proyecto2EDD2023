@@ -86,7 +86,21 @@ public class CargaDatos {
         ListaEnlazadaDoble nuevoFila = clon(tabla.getCampos());
        
         if(tabla.getRelacion() != null){
-            
+             NodeList hijos = estructuraEntrada.getChildNodes();
+             for (int i = 0; i < hijos.getLength(); i++) {
+                System.out.println("recorrido de nodos: "+i  );
+                Node nuevo = hijos.item(i);
+                if(nuevo.getNodeType() == Node.ELEMENT_NODE){
+                    System.out.println("Nodo:" + nuevo.getNodeName());
+                    if(tabla.existeTipo(nuevo.getNodeName(), nuevo.getTextContent(),nuevoFila)){
+                        
+                    }
+                    else{
+                        System.out.println("Hay un problema :c");
+                    }
+                    
+                }
+            }
         }
         //sino hay una relacion 
         else{
@@ -108,8 +122,13 @@ public class CargaDatos {
             }
         
         }
+        if(nuevoFila.lleno()){
         tabla.getFilas().agregarNuevo(new NodoFila(nuevoFila));
         nuevoFila = null;
+        }
+        else{
+            System.out.println("Datos incompletos");
+        }
     }
     public ListaEnlazadaDoble clon(ListaEnlazadaDoble campos){
         ListaEnlazadaDoble aux = new ListaEnlazadaDoble();

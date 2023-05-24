@@ -122,4 +122,16 @@ public class ListaEnlazadaDoble {
             }
         }
     }
+    public boolean lleno(){
+        boolean bandera = true;
+        Nodo aux = head;
+        while (aux != null) {            
+            if(aux.getDato() == null){
+                bandera = false;
+                break;
+            }
+            aux = aux.getSiguiente();
+        }
+        return bandera;
+    }
 }

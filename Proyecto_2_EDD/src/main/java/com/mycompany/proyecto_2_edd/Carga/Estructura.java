@@ -27,7 +27,9 @@ import org.w3c.dom.NodeList;
  * @author jose
  */
 public class Estructura {
+
     private ListaTabla tablas;
+
     public Estructura(ListaTabla tablas) {
         this.tablas = tablas;
     }
@@ -43,7 +45,7 @@ public class Estructura {
                 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder builder = factory.newDocumentBuilder();
                 Document docXML = builder.parse(f);
-                docXML.getDocumentElement().normalize();          
+                docXML.getDocumentElement().normalize();
                 Node raiz = docXML.getDocumentElement();
 
                 // Recorrer los nodos hijos del nodo raíz
@@ -56,13 +58,16 @@ public class Estructura {
                         //ingresa a la etqueta de Estrucura
                         Tabla nueva = new Tabla();
                         // Obtener el nombre del elemento              
-                        Nodo(nodo,nueva);                      
-                        tablas.agregarFinal(new NodoTabla(nueva));
+                        Nodo(nodo, nueva);
+                        if (nueva.existeClave()) {
+                            System.out.println("existe y entra");
+                            tablas.agregarFinal(new NodoTabla(nueva));
+                        }
+
                     }
                 }
 //                tablas.listar();
-            }
-            else{
+            } else {
                 JOptionPane.showMessageDialog(null, "El nombre del archivo no es correcto");
             }
 
@@ -70,27 +75,34 @@ public class Estructura {
 
         }
     }
+
     /*
     *   Recorre lo atributos de una Estructura para crear una tabla 
-    */
-    private void Nodo(Node nodo,Tabla tab){
+     */
+    private void Nodo(Node nodo, Tabla tab) {
         NodeList hijos = nodo.getChildNodes();
         for (int i = 0; i < hijos.getLength(); i++) {
             Node nuevo = hijos.item(i);
-            if(nuevo.getNodeType() == Node.ELEMENT_NODE){
-                String nom = nuevo.getNodeName();                           
+            if (nuevo.getNodeType() == Node.ELEMENT_NODE) {
+                String nom = nuevo.getNodeName();
                 String type = nuevo.getTextContent();
-                
-                if(nom.equals("tabla")){//obtiene el nombre de la tabla 
+
+                if (nom.equals("tabla")) {//obtiene el nombre de la tabla 
                     tab.setNombre(type);
-                }else if(nom.equals("clave")){//obtiene su clave 
+                } else if (nom.equals("clave")) {//obtiene su clave 
                     tab.setClave(type);
-                }
-                else if(nom.equals("relacion")){//obtiene una relacion en caso de que exista 
-                    tab.setRelacion(type);
-                }
-                else{//obtiene los demas atributos que se van a guardar en una lista enlazada 
-                    tab.getCampos().agregarAlFinal(new Nodo(nom,type));
+                } else if (nom.equals("relacion")) {//obtiene una relacion en caso de que exista 
+                    NodoTabla aux = tablas.getPrimero();
+                    while (aux != null) {
+                        if (aux.getTabla().getNombre().equals(type)) {
+                            tab.getCampos().agregarAlFinal(new Nodo(aux.getTabla().getNombre(), "Foraneo"));
+                            tab.setRelacion(type);
+                            break;
+                        }
+                        aux = aux.getSiguiente();
+                    }
+                } else {//obtiene los demas atributos que se van a guardar en una lista enlazada 
+                    tab.getCampos().agregarAlFinal(new Nodo(nom, type));
                 }
             }
         }

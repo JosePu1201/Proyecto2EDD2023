@@ -2,9 +2,9 @@
 <Entradas>
 	<Cliente>
 		<Nit>1556</Nit>
-		<Nombre>JoseLuis</Nombre>
 	</Cliente>
 	<Cliente>
+		<NoCuenta>15555</NoCuenta>
 		<Nit>145657</Nit>
 		<Nombre>JoseLuis</Nombre>
 	</Cliente>
@@ -37,5 +37,6 @@
 		<Fecha>b</Fecha>
 		<Lugar>b</Lugar>
 		<Valor>135</Valor>
+		<Cliente>156464</Cliente>
 	</Factura>
 </Entradas>

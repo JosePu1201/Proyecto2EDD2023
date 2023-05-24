@@ -5,6 +5,7 @@ public class Nodo {
     private String informacion;
     private String tipo;
     private String dato;
+    private  boolean banderaFor = false;
     Nodo anterior;
     Nodo siguiente;
 
@@ -75,7 +76,7 @@ public class Nodo {
         System.out.println("entra a validar con esta entrada: "+entrada);
         System.out.println("Valida con este tipo de dato: "+tipo);
         boolean banderaTipo = false;
-
+       
         if (tipo.equals("int")) {
             try {
                 Integer.parseInt(entrada);
@@ -115,15 +116,27 @@ public class Nodo {
         else if(tipo.equals("String")){
             banderaTipo = true;
         }
+        else if(tipo.equals("Foraneo")){
+            banderaFor = true;
+            banderaTipo = true;
+        }
         
         if(banderaTipo){
-            System.out.println("Es de un tipo correcto");
+            
             dato = entrada;
         }
         else{
-            System.out.println("bandera no funcional");
+           
         }
 
+    }
+
+    public boolean isBanderaFor() {
+        return banderaFor;
+    }
+
+    public void setBanderaFor(boolean banderaFor) {
+        this.banderaFor = banderaFor;
     }
 
     @Override
