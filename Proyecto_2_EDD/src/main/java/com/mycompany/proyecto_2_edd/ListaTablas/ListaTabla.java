@@ -82,6 +82,9 @@ public class ListaTabla {
         }
         return valido;
     }
+    /*
+    *Existe la tabla
+    */
     public Tabla existe(String entrada) {
         Tabla auxt = null;
         boolean existe = false;
@@ -97,7 +100,9 @@ public class ListaTabla {
         }
         return auxt;
     }
-    
+    /*
+    *Busca un campo
+    */
     public NodoTabla buscar(String nombre){
         NodoTabla aux = primero;
         NodoTabla salida = null;

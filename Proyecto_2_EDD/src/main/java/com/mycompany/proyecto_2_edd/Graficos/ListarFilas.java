@@ -156,6 +156,9 @@ public class ListarFilas extends javax.swing.JPanel {
         //eliminarCol();
         NodoTabla aux = tablas.getPrimero();
         int tam = 0;
+        /*
+        *Agrega una columna a la tabla 
+        */
         while (aux != null) {
             if (aux.getTabla().getNombre().equals(combo.getSelectedItem().toString())) {
                 jLabel4.setText(combo.getSelectedItem().toString());
@@ -178,6 +181,9 @@ public class ListarFilas extends javax.swing.JPanel {
         tabla.setVisible(true);
         this.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+    /**
+     *Agrega una fila a la tabla 
+     */
     private void agregarFila(DefaultTableModel modelo, ListaSimpleFila lista, int tam) {
         NodoFila aux = lista.getPrimero();
         while (aux != null) {

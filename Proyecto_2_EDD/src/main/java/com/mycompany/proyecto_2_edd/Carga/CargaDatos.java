@@ -41,8 +41,7 @@ public class CargaDatos {
         try {
             String ruta = fileChooser.getSelectedFile().getAbsolutePath();
             File f = new File(ruta);
-            if (f.getName().equals("entrada.dat")) {
-                System.out.println("entra aca 1");
+            if (f.getName().equals("entrada.dat")) {  //Verifica si existe el nodo    
                 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder builder = factory.newDocumentBuilder();
                 Document docXML = builder.parse(f);
@@ -53,23 +52,16 @@ public class CargaDatos {
                 NodeList hijos = raiz.getChildNodes();
                 for (int i = 0; i < hijos.getLength(); i++) {
                     Node nodo = hijos.item(i);
-                    System.out.println("-----------------entra al for: "+i);
-                    // Verificar si el nodo es un elemento (etiqueta)
+                    
                     if (nodo.getNodeType() == Node.ELEMENT_NODE ) {
                         //Verifica que existe el nombre de la tabla 
                         Tabla auxt = tablas.existe(nodo.getNodeName());
                         System.out.println(auxt.toString());
-                       // auxt.imprimir();
-                            //System.out.println("tabla existe");
-                            //comienza a validar las entrada de texto
+                      
                             if(auxt != null){
                             validarEntrada(nodo, auxt);
                             }
-//                            
-                            System.out.println("Termina de validar y agregar");
-
-                    }
-                    System.out.println("----------------------sale for------------------------");
+                    }                 
                 }
                 
             } else {
@@ -88,15 +80,12 @@ public class CargaDatos {
         if(tabla.getRelacion() != null){
              NodeList hijos = estructuraEntrada.getChildNodes();
              for (int i = 0; i < hijos.getLength(); i++) {
-                System.out.println("recorrido de nodos: "+i  );
                 Node nuevo = hijos.item(i);
                 if(nuevo.getNodeType() == Node.ELEMENT_NODE){
-                    System.out.println("Nodo:" + nuevo.getNodeName());
                     if(tabla.existeTipo(nuevo.getNodeName(), nuevo.getTextContent(),nuevoFila)){
                         
                     }
                     else{
-                        System.out.println("Hay un problema :c");
                     }
                     
                 }
@@ -107,17 +96,12 @@ public class CargaDatos {
 
              NodeList hijos = estructuraEntrada.getChildNodes();
              for (int i = 0; i < hijos.getLength(); i++) {
-                System.out.println("recorrido de nodos: "+i  );
                 Node nuevo = hijos.item(i);
                 if(nuevo.getNodeType() == Node.ELEMENT_NODE){
-                    System.out.println("Nodo:" + nuevo.getNodeName());
-                    if(tabla.existeTipo(nuevo.getNodeName(), nuevo.getTextContent(),nuevoFila)){
-                        
+                    if(tabla.existeTipo(nuevo.getNodeName(), nuevo.getTextContent(),nuevoFila)){                       
                     }
                     else{
-                        System.out.println("Hay un problema :c");
-                    }
-                    
+                    }                   
                 }
             }
         
@@ -127,7 +111,6 @@ public class CargaDatos {
         nuevoFila = null;
         }
         else{
-            System.out.println("Datos incompletos");
         }
     }
     public static ListaEnlazadaDoble clon(ListaEnlazadaDoble campos){

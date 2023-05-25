@@ -54,6 +54,9 @@ public class ListaSimpleFila {
     public void setOcupado(int ocupado) {
         this.ocupado = ocupado;
     }
+    /*
+    *Elimina a una fila
+    */
     public void eliminar(String campo,String dato){
         if(primero == null){
             System.out.println("Las filas estan vacias");

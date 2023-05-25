@@ -42,9 +42,6 @@ public class Eliminacion {
                 Document docXML = builder.parse(f);
                 docXML.getDocumentElement().normalize();
                 Node raiz = docXML.getDocumentElement();
-
-                // Recorrer los nodos hijos del nodo raíz
-               
                 NodeList hijos = raiz.getChildNodes();
                 for (int i = 0; i < hijos.getLength(); i++) {
                 String tabla="";
@@ -54,8 +51,7 @@ public class Eliminacion {
                     // Verificar si el nodo es un elemento (etiqueta)
                     if (nodo.getNodeType() == Node.ELEMENT_NODE) {
                         //ingresa a la etqueta de Estrucura
-                         tabla = nodo.getNodeName();
-                        
+                        tabla = nodo.getNodeName();                      
                         NodeList subhijos = nodo.getChildNodes();
                         for (int j = 0; j < subhijos.getLength(); j++) {
                             Node nodito = subhijos.item(j);
@@ -67,6 +63,7 @@ public class Eliminacion {
                             
                         }
                     }
+                    //Elimina el nodo fila
                     eliminar(tabla, campo, fato, tablas);
                 }
 //                tablas.listar();
@@ -80,17 +77,11 @@ public class Eliminacion {
     }
     
     public static void eliminar (String nombreTabla, String campo,String dato,ListaTabla tablas){
-        System.out.println("Tabla eliminar: "+nombreTabla);
-        System.out.println("Campo eliminar: "+campo);
-        System.out.println("Dato elimiar: "+dato);
         NodoTabla aux = tablas.getPrimero();
         while (aux != null) {            
             if(aux.getTabla().getNombre().equals(nombreTabla)){
-                System.out.println("------------------------------------");
-                System.out.println("Encontrado");
                 aux.getTabla().imprimir();
                 aux.getTabla().getFilas().eliminar(campo, dato);
-                System.out.println("++++++++++++++++++++++++++++++++++++");
                 break;
             }
             aux = aux.getSiguiente();

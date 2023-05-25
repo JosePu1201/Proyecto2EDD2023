@@ -1,36 +1,42 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Entradas>
 	<Cliente>
 		<NoCuenta>15555</NoCuenta>
 		<Nit>145657</Nit>
-		<Nombre>JoseLuis</Nombre>
+		<Nombre>Jose</Nombre>
 	</Cliente>
 	<Cliente>
 		<NoCuenta>1234</NoCuenta>
 		<Nit>154564568</Nit>
-		<Nombre>JoseLuis</Nombre>
+		<Nombre>Luis</Nombre>
 	</Cliente>
 	<Cliente>
 		<NoCuenta>9955</NoCuenta>
 		<Nit>154564569</Nit>
-		<Nombre>JoseLuis</Nombre>
+		<Nombre>Pedro</Nombre>
 	</Cliente>
 	<Cliente>
 		<NoCuenta>9131</NoCuenta>
 		<Nit>164564560</Nit>
-		<Nombre>JoseLuis</Nombre>
+		<Nombre>Alejando</Nombre>
 	</Cliente>
 	<Cliente>
 		<NoCuenta>0005</NoCuenta>
 		<Nit>164564561</Nit>
-		<Nombre>JoseLuis</Nombre>
+		<Nombre>Yefry</Nombre>
 	</Cliente>
+	<Vendedor>
+		<NoVendedor>123456</NoVendedor>
+		<Codigo>99898</Codigo>
+		<Nombre>Daniel</Nombre>
+	</Vendedor>
 	<Factura>
 		<NoFactura>157</NoFactura>
 		<Nit>2200</Nit>
 		<Fecha>a</Fecha>
 		<Lugar>a</Lugar>
 		<Valor>132</Valor>
+		<Cliente>1234</Cliente>
 	</Factura>
 	<Factura>
 		<NoFactura>158</NoFactura>
@@ -39,5 +45,51 @@
 		<Lugar>b</Lugar>
 		<Valor>135</Valor>
 		<Cliente>156464</Cliente>
+	</Factura>
+	<Factura>
+		<Nit>55</Nit>
+		<Fecha>d</Fecha>
+		<Lugar>d</Lugar>
+		<NoFactura>19999</NoFactura>
+		<Valor>200</Valor>
+		<Cliente>9955</Cliente>
+	</Factura>
+	<Vendedor>
+		<NoVendedor>1558</NoVendedor>
+		<Codigo>1555</Codigo>
+		<Nombre>Juan</Nombre>
+	</Vendedor>
+	<Vendedor>
+		<NoVendedor>1</NoVendedor>
+		<Codigo>0505</Codigo>
+		<Nombre>Darwin</Nombre>
+	</Vendedor>
+	<Familia>
+		<Nombre>Maria</Nombre>
+		<DPI>123456789</DPI>
+	</Familia>
+	<Familia>
+		<Nombre>Fernanda</Nombre>
+		<DPI>987654321</DPI>
+	</Familia>
+	<Familia>
+		<DPI>123456789</DPI>
+		<Nombre>Odi</Nombre>
+	</Familia>
+	<Pasaporte>
+		<NoPasaporte>55555555</NoPasaporte>
+		<Nombre>Pedro</Nombre>
+	</Pasaporte>
+	<Pasaporte>
+		<NoPasaporte>6666666</NoPasaporte>
+		<Nombre>Moises</Nombre>
+	</Pasaporte>
+	<Factura>
+		<NoFactura>11111</NoFactura>
+		<Nit>25898</Nit>
+		<Fecha>j</Fecha>
+		<Lugar>k</Lugar>
+		<Valor>135</Valor>
+		<Cliente>1234</Cliente>
 	</Factura>
 </Entradas>

@@ -8,6 +8,25 @@
 		<clave>NoCuenta</clave>
 	</estructura>
 	<estructura>
+		<NoVendedor>int</NoVendedor>
+		<tabla>Vendedor</tabla>
+		<Codigo>int</Codigo>
+		<Nombre>String</Nombre>
+		<clave>Codigo</clave>
+	</estructura>
+	<estructura>
+		<tabla>Familia</tabla>
+		<Nombre>String</Nombre>
+		<DPI>int</DPI>
+		<clave>DPI</clave>
+	</estructura>
+	<estructura>
+		<tabla>Pasaporte</tabla>
+		<NoPasaporte>int</NoPasaporte>
+		<Nombre>String</Nombre>
+		<clave>NoPasaporte</clave>
+	</estructura>
+	<estructura>
 		<tabla>Factura</tabla>
 		<NoFactura>int</NoFactura>
 		<Nit>int</Nit>
@@ -16,11 +35,5 @@
 		<Valor>int</Valor>
 		<clave>NoFactura</clave>
 		<relacion>Cliente</relacion>
-	</estructura>
-	<estructura>
-		<tabla>Vendedor</tabla>
-		<Sueldo>int</Sueldo>
-		<NoEmpleado>int</NoEmpleado>
-		<relacion>Tienda</relacion>
 	</estructura>
 </Estructuras>

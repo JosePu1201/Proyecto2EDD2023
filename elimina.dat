@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Eliminar>
 	<Cliente> 
-        <Nit>164564561</Nit>
+        <Nit>145657</Nit>
+    </Cliente>
+	<Cliente> 
+        <Nit>1234</Nit>
     </Cliente>
 </Eliminar>
