@@ -1,0 +1,60 @@
+@options
+@packages
+-classpath
+'/home/jose/.m2/repository/org/netbeans/external/AbsoluteLayout/RELEASE170/AbsoluteLayout-RELEASE170.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+-sourcepath
+'/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Proyecto_2_EDD 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' '/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Proyecto_2_EDD 1.0-SNAPSHOT API'
+com.mycompany.proyecto_2_edd.ArbolBPlus
+com.mycompany.proyecto_2_edd.ArbolBPlus.ListaSimpleArbol
+com.mycompany.proyecto_2_edd.Listas
+com.mycompany.proyecto_2_edd.Carga
+com.mycompany.proyecto_2_edd.Graficos
+com.mycompany.proyecto_2_edd.ListaFilas
+com.mycompany.proyecto_2_edd
+com.mycompany.proyecto_2_edd.ListaTablas
+/home/jose/.m2/repository/org/netbeans/external/AbsoluteLayout/RELEASE170/AbsoluteLayout-RELEASE170.jar = 1683270192552
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/src/main/java = 1681966664545
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/package-search-index.js = 1684975131943
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/type-search-index.js = 1684975131947
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/help-doc.html = 1684975131975
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/package-search-index.zip = 1684975131947
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/overview-summary.html = 1684975131975
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/element-list = 1684975131763
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/allclasses.html = 1684975131967
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/search.js = 1684975131979
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/jquery-ui.overrides.css = 1684975131995
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/allclasses-index.html = 1684975131955
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/deprecated-list.html = 1684975131963
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/member-search-index.zip = 1684975131947
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/stylesheet.css = 1684975131979
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/type-search-index.zip = 1684975131947
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/index.html = 1684975131971
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/member-search-index.js = 1684975131947
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/script.js = 1684975131979
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/serialized-form.html = 1684975131815
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/allpackages-index.html = 1684975131959
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/constant-values.html = 1684975131799
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/overview-tree.html = 1684975131911
+/home/jose/Documentos/Estructuras de datos/Proyecto2/Proyecto_2_EDD/target/site/apidocs/index-all.html = 1684975131951
